@@ -18,7 +18,8 @@
         android:textColor="@android:color/white"
         android:background="@drawable/all_rounded"
         android:layout_margin="15dp"
-        android:layout_height="50dp"/>
+        android:padding="10dp"
+        android:layout_height="wrap_content"/>
 
     <ProgressBar
         android:id="@+id/progress_bar"

@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="100dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:textColor="#1A1A1A"
@@ -34,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/rounded"
-        android:layout_marginTop="200dp">
+        android:layout_marginTop="220dp">
 
         <LinearLayout
             android:layout_width="match_parent"

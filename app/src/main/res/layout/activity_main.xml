@@ -7,12 +7,40 @@
     android:background="#b0c9f1"
     tools:context=".MainActivity">
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+        app:cardCornerRadius="10dp">
+
+        <RelativeLayout
+            android:id="@+id/counselling_assistant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="#C2FDE0"
+                android:drawableStart="@drawable/baseline_assistant_24"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Counselling Guidence"
+                android:textColor="#0F9D58" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
     <TextView
         android:id="@+id/uptac_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="100dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:textColor="#1A1A1A"
@@ -34,7 +62,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/rounded"
-        android:layout_marginTop="200dp">
+        android:layout_marginTop="220dp">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -291,13 +319,13 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="8dp"
-                        android:gravity="center"
                         android:layout_centerInParent="true"
-                        android:drawableStart="@drawable/baseline_person_24"
                         android:background="#FDF0DD"
-                        android:textColor="#FFA116"
-                        android:text="About Us"/>
+                        android:drawableStart="@drawable/baseline_person_24"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="About Us"
+                        android:textColor="#FFA116" />
 
                 </RelativeLayout>
 
