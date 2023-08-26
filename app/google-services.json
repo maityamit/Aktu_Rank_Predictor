@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "419825785716",
+    "project_id": "aktu-college-predictor",
+    "storage_bucket": "aktu-college-predictor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:419825785716:android:1736931e001cfb2f09ea21",
+        "android_client_info": {
+          "package_name": "akturankpredictorbyamitmaity.example.akturankpredictor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "419825785716-5esh7vsj81hrdm4o1q3rr6r9f7v7ouqk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdlm8ro_f0nnAN_vPO2S5-13YSEIbbx3U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "419825785716-5esh7vsj81hrdm4o1q3rr6r9f7v7ouqk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

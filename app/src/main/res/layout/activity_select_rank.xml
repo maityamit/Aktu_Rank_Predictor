@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#b0c9f1"
+    tools:context=".SelectRankActivity">
+
+    <TextView
+        android:id="@+id/uptac_text_counsilname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_marginTop="80dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:textColor="#1A1A1A"
+        android:textStyle="bold"
+        android:text="Uttar Pradesh Technical Admission Counselling (UPTAC)"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/uptac_text_counsilname"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:textColor="#2A2A2A"
+        android:text="Based on Previous Year Data"/>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/rounded"
+        android:layout_marginTop="200dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_marginStart="26dp"
+                android:textColor="#FFA116"
+                android:text="Enter Your Rank"/>
+
+            <EditText
+                android:id="@+id/user_rank_input"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:hint="Your Rank"
+                android:inputType="numberSigned"
+                android:paddingStart="20dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="#A9A9A9"
+                android:background="@drawable/all_rounded"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                android:weightSum="2"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:textColor="#FFA116"
+                        android:text="Your State"/>
+
+                    <Spinner
+                        android:id="@+id/spinner_state"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="25dp"
+                        android:paddingStart="5dp"
+                        android:background="@drawable/all_rounded"
+                        android:layout_marginTop="15dp"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:textColor="#FFA116"
+                        android:text="Select Quota"/>
+
+                    <Spinner
+                        android:id="@+id/spinner_quota"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:paddingStart="5dp"
+                        android:layout_marginEnd="25dp"
+                        android:background="@drawable/all_rounded"
+                        android:layout_marginTop="15dp"/>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/submit_button"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:background="@drawable/all_rounded"
+            android:text="Submit"
+            android:layout_marginBottom="25dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:textSize="17sp"
+            android:textColor="#1A1A1A"
+            android:backgroundTint="@color/purple_200"/>
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

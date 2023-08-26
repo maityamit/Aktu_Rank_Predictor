@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">AKTU College Predictor</string>
+
+    <string-array name="quota">
+        <item>Select</item>
+        <item>Uttar Pradesh</item>
+        <item>Outside UP</item>
+    </string-array>
+    <string-array name="category">
+        <item>Select</item>
+        <item>OPEN</item>
+        <item>OPEN(AF)</item>
+        <item>OPEN(GIRL)</item>
+        <item>OPEN(PH)</item>
+        <item>OPEN(TF)</item>
+        <item>SC</item>
+        <item>SC(Girl)</item>
+        <item>ST</item>
+        <item>BC(AF)</item>
+        <item>BC</item>
+        <item>BC(Girl)</item>
+        <item>EWS(OPEN)</item>
+    </string-array>
+
+
+</resources>
