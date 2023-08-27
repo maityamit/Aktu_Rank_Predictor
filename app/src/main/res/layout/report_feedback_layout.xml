@@ -22,7 +22,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@android:color/white"
-            android:textSize="20sp"
+            android:textSize="18sp"
+            android:drawableStart="@drawable/baseline_report_24"
             android:layout_margin="20dp"
             android:text="Report Feedback"/>
 
@@ -43,7 +44,7 @@
         <EditText
             android:id="@+id/text_feedback_"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="100dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:backgroundTint="#2A2A2A"
@@ -62,8 +63,8 @@
             android:layout_marginBottom="30dp"
             android:layout_marginTop="20dp"
             android:text="Report Feedback"
-            android:backgroundTint="@color/purple_200"
-            android:textSize="18sp"
+            android:backgroundTint="#80B0FB"
+            android:textSize="17sp"
             android:textStyle="bold"
             android:textColor="@android:color/white"
             android:textAllCaps="false"
