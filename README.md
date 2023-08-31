@@ -6,6 +6,18 @@ Predict your college and make decision wisely !
 <a href="https://play.google.com/store/apps/details?id=akturankpredictorbyamitmaity.example.akturankpredictor">
 <img src="https://github.com/maityamit/Heritsm-Heritage_of_India-Application/blob/master/Demo/800px-Google_Play_Store_badge_EN.svg.png" width="20%" /></a>
 
+## 📸 Screenshots
+ 
+ 
+ <p align="center">
+<img src="https://github.com/maityamit/Aktu_Rank_Predictor/blob/main/Demo/banner.png" width="90%" />
+ <br>
+ 
+
+||||
+|:----------------------------------------:|:-----------------------------------------:|:-----------------------------------------: |
+| ![Imgur](Demo/1.png) | ![Imgur](Demo/2.png) | ![Imgur](Demo/3.png) |
+
 
 ## Projects Description:
 Introducing the Ultimate AKTU College Predictor: Your Path to Informed Decisions!
