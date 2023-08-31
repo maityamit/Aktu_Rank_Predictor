@@ -1,5 +1,5 @@
 # Aktu Rank Predictor
-Introducing the Ultimate AKTU College Predictor: Your Path to Informed Decisions!
+Predict your college and make decision wisely !
 
 ## 🔗 Download the App 
 
