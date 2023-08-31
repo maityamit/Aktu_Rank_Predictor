@@ -61,8 +61,11 @@ class MainActivity : AppCompatActivity() {
             // Create obj of TelephonyManager and ask for current telephone service
             val telephonyManager = this.getSystemService(TELEPHONY_SERVICE) as TelephonyManager
             val phoneNumber = telephonyManager.line1Number
-            database = Firebase.database.reference
-            database.child("user_mobile_no").child(phoneNumber).setValue("true")
+            Toast.makeText(applicationContext,phoneNumber.toString(),Toast.LENGTH_LONG).show()
+            if(phoneNumber.toString() != ""){
+                database = Firebase.database.reference
+                database.child("user_mobile_no").child(phoneNumber).setValue("true")
+            }
         } else {
             // Ask for permission
             requestPermission()
@@ -181,18 +184,16 @@ class MainActivity : AppCompatActivity() {
                     return
                 }
                 val phoneNumber = telephonyManager.line1Number
-                database = Firebase.database.reference
-                database.child("user_mobile_no").child(phoneNumber).setValue("true")
+                if(phoneNumber.toString() != ""){
+                    database = Firebase.database.reference
+                    database.child("user_mobile_no").child(phoneNumber).setValue("true")
+                }
             }
             else -> throw IllegalStateException("Unexpected value: $requestCode")
         }
     }
 
     data class ReportFeedbackClass(val userText: String, val email: String) {}
-
-
-
-
 
 
 }
