@@ -28,7 +28,7 @@
                 android:drawableStart="@drawable/baseline_assistant_24"
                 android:gravity="center"
                 android:padding="8dp"
-                android:text="Counselling Guidence"
+                android:text="Counselling Assistant"
                 android:textColor="#0F9D58" />
 
         </RelativeLayout>

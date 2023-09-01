@@ -44,32 +44,6 @@ class MainActivity : AppCompatActivity() {
         counselling = findViewById(R.id.counselling_assistant)
 
 
-        if (ActivityCompat.checkSelfPermission(
-                this,
-                Manifest.permission.READ_SMS
-            ) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                this,
-                Manifest.permission.READ_PHONE_NUMBERS
-            ) ==
-            PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                this,
-                Manifest.permission.READ_PHONE_STATE
-            ) == PackageManager.PERMISSION_GRANTED
-        ) {
-            // Permission check
-
-            // Create obj of TelephonyManager and ask for current telephone service
-            val telephonyManager = this.getSystemService(TELEPHONY_SERVICE) as TelephonyManager
-            val phoneNumber = telephonyManager.line1Number
-            Toast.makeText(applicationContext,phoneNumber.toString(),Toast.LENGTH_LONG).show()
-            if(phoneNumber.toString() != ""){
-                database = Firebase.database.reference
-                database.child("user_mobile_no").child(phoneNumber).setValue("true")
-            }
-        } else {
-            // Ask for permission
-            requestPermission()
-        }
 
 
         feedback.setOnClickListener{
@@ -151,47 +125,6 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun requestPermission() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            requestPermissions(
-                arrayOf(
-                    Manifest.permission.READ_SMS,
-                    Manifest.permission.READ_PHONE_NUMBERS,
-                    Manifest.permission.READ_PHONE_STATE
-                ), 100
-            )
-        }
-    }
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        when (requestCode) {
-            100 -> {
-                val telephonyManager = this.getSystemService(TELEPHONY_SERVICE) as TelephonyManager
-                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_SMS) !=
-                    PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                        this,
-                        Manifest.permission.READ_PHONE_NUMBERS
-                    ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                        this,
-                        Manifest.permission.READ_PHONE_STATE
-                    ) != PackageManager.PERMISSION_GRANTED
-                ) {
-                    return
-                }
-                val phoneNumber = telephonyManager.line1Number
-                if(phoneNumber.toString() != ""){
-                    database = Firebase.database.reference
-                    database.child("user_mobile_no").child(phoneNumber).setValue("true")
-                }
-            }
-            else -> throw IllegalStateException("Unexpected value: $requestCode")
-        }
-    }
 
     data class ReportFeedbackClass(val userText: String, val email: String) {}
 

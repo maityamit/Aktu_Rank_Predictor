@@ -1,4 +1,4 @@
-package akturankpredictorbyamitmaity.example.akturankpredictor;
+package akturankpredictorbyamitmaity.example.akturankpredictor.services;
 
 public class Constants {
 

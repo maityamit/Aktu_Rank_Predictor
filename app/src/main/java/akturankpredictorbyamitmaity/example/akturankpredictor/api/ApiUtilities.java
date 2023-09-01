@@ -3,7 +3,7 @@ package akturankpredictorbyamitmaity.example.akturankpredictor.api;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static akturankpredictorbyamitmaity.example.akturankpredictor.Constants.BASE_URL;
+import static akturankpredictorbyamitmaity.example.akturankpredictor.services.Constants.BASE_URL;
 
 public class ApiUtilities {
 

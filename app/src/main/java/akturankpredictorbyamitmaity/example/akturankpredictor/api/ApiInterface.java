@@ -6,8 +6,8 @@ import retrofit2.http.Body;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
-import static akturankpredictorbyamitmaity.example.akturankpredictor.Constants.CONTENT_TYPE;
-import static akturankpredictorbyamitmaity.example.akturankpredictor.Constants.SERVER_KEY;
+import static akturankpredictorbyamitmaity.example.akturankpredictor.services.Constants.CONTENT_TYPE;
+import static akturankpredictorbyamitmaity.example.akturankpredictor.services.Constants.SERVER_KEY;
 
 public interface ApiInterface {
 
