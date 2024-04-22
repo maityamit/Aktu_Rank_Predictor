@@ -1,14 +1,14 @@
 # Aktu Rank Predictor
 Predict your college and make decision wisely !
 
-## 🔗 Download the App [700+ Downloads]
+## 🔗 Download the App [1150+ Downloads]
 
 <a href="https://play.google.com/store/apps/details?id=akturankpredictorbyamitmaity.example.akturankpredictor">
 <img src="https://github.com/maityamit/Heritsm-Heritage_of_India-Application/blob/master/Demo/800px-Google_Play_Store_badge_EN.svg.png" width="20%" /></a>
 
 Introducing the Ultimate AKTU College Predictor: Your Path to Informed Decisions!
 
-Embarking on your higher education journey is a critical step towards shaping your future, and we understand the significance of making well-informed choices. With the upcoming AKTU Students in mind, we are proud to unveil our cutting-edge Android application designed to empower you with accurate insights and seamless user experiences.
+Embarking on your higher education journey is a critical step toward shaping your future, and we understand the significance of making well-informed choices. With the upcoming AKTU Students in mind, we are proud to unveil our cutting-edge Android application designed to empower you with accurate insights and seamless user experiences.
 
 - Our application is powered by meticulously gathered and up-to-date data from previous year cutoffs, ensuring unparalleled precision in predicting the colleges that align with your rank.
 - Our preferences matter, and we respect that. Tailor your results with precision by filtering colleges based on your desired state or quota.
