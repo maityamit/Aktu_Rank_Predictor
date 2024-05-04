@@ -9,9 +9,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/main_logo"
+        android:icon="@drawable/kogo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/main_logo_round"
+        android:roundIcon="@drawable/kogo"
         android:supportsRtl="true"
         android:theme="@style/Theme.AKTURankPredictor"
         tools:targetApi="33">
@@ -35,7 +35,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true"/>
 
         <meta-data
             android:name="preloaded_fonts"
@@ -49,10 +49,14 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
                 <action android:name="com.google.android.c2dm.intent.Recieve" />
             </intent-filter>
-        </service> <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
+        </service>
+
+        <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713" />
+            android:value="ca-app-pub-5798498875431842~2907256326" />
+
+
     </application>
 
 </manifest>

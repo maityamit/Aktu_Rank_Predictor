@@ -7,6 +7,8 @@
     android:background="#b0c9f1"
     tools:context=".SelectRankActivity">
 
+
+
     <TextView
         android:id="@+id/uptac_text_counsilname"
         android:layout_width="match_parent"
@@ -28,6 +30,18 @@
         android:textColor="#2A2A2A"
         android:text="Based on Previous Year Data"/>
 
+    <TextView
+        android:id="@+id/only_for_jee_main_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="11sp"
+        android:textStyle="italic"
+        android:layout_marginStart="10dp"
+        android:visibility="gone"
+        android:layout_marginEnd="10dp"
+        android:textColor="@android:color/holo_red_light"
+        android:layout_marginTop="15dp"
+        android:text="**Opening/Closing Ranks for Open Seats represent CRL. Opening/Closing Ranks for EWS, OBC-NCL, SC and ST Seats represent respective Category Ranks. Opening/Closing Ranks for PwD Seats represent PwD Ranks within Respective Categories.\nFor Jee Main/Adv used following ranks"/>
 
 
     <RelativeLayout
@@ -35,6 +49,8 @@
         android:layout_height="match_parent"
         android:background="@drawable/rounded"
         android:layout_marginTop="220dp">
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -66,6 +82,7 @@
                 android:layout_marginEnd="20dp"/>
 
             <LinearLayout
+                android:id="@+id/select_rank_second_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -128,6 +145,17 @@
 
 
             </LinearLayout>
+
+            <com.google.android.gms.ads.AdView
+                xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/select_rank_ADS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center_horizontal"
+                ads:adSize="BANNER"
+                ads:adUnitId="ca-app-pub-5798498875431842/1961840311">
+            </com.google.android.gms.ads.AdView>
 
 
         </LinearLayout>

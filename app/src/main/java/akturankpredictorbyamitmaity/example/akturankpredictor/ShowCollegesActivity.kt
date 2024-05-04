@@ -12,6 +12,9 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -30,17 +33,23 @@ class ShowCollegesActivity : AppCompatActivity() {
         recyclerview.layoutManager = LinearLayoutManager(applicationContext)
 
 
+        MobileAds.initialize(this) {}
+        val mAdView: AdView = findViewById(R.id.show_colleges_ADS)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
+
+
 
         contestOnly = ArrayList()
         progressBar = findViewById(R.id.progress_bar)
 
         val extras = intent.extras
-        var division = extras?.getString("division")
-        var rank = extras?.getString("rank")
-        var state = extras?.getString("state")
-        var quota = extras?.getString("quota")
+        val division = extras?.getString("division")
+        val rank = extras?.getString("rank")
+        val state = extras?.getString("state")
+        val quota = extras?.getString("quota")
 
-//        Toast.makeText(this,division+" "+rank+" "+" "+state+" "+quota,Toast.LENGTH_LONG).show()
+    //    Toast.makeText(this,division+" "+rank+" "+" "+state+" "+quota,Toast.LENGTH_LONG).show()
 
         textShow = findViewById(R.id.college_header)
 
@@ -60,8 +69,58 @@ class ShowCollegesActivity : AppCompatActivity() {
 
         textShow.text = "Rank: $rank | State: $asI | Quota: $amI"
 
-        getFetch(division,rank,state,quota)
 
+        if(division.equals("jee_main.json")){
+            getFetchForJeeMain(division,rank,state,quota)
+        }else{
+            getFetch(division,rank,state,quota)
+        }
+
+    }
+
+    private fun getFetchForJeeMain(division: String?, rank: String?, state: String?, quota: String?) {
+        val destinationService  = RankClient.buildService(RankAPISERVICE::class.java)
+        val requestCallLeetCode =destinationService.getApiResponseAKTUBTECH(division)
+        //make network call asynchronously
+        requestCallLeetCode.enqueue(object : Callback<List<ModelClass>> {
+            override fun onResponse(call: Call<List<ModelClass>>, response: Response<List<ModelClass>>) {
+                if (response.isSuccessful){
+                    val symptomsList  = response.body()!!
+                    val iterator = symptomsList.iterator()
+                   // Toast.makeText(applicationContext,state,Toast.LENGTH_SHORT).show()
+                    iterator.forEach {
+                        if(rank!=null && it.CR>=rank.toInt()) {
+                            if(state=="Select" && quota=="Select") contestOnly.add(it)
+                            if(state=="Select" && quota==it.Category) contestOnly.add(it)
+                            if(quota=="Select" && state==it.Quota) contestOnly.add(it)
+                            if(quota==it.Category && state==it.Quota) contestOnly.add(it)
+                        }
+                    }
+
+//                    Toast.makeText(applicationContext,contestOnly.size.toString(),Toast.LENGTH_SHORT).show()
+
+                    if(contestOnly.size == 0){
+                        progressBar.isVisible = false
+                        Toast.makeText(applicationContext,"Sorry! No Colleges Found",Toast.LENGTH_LONG).show()
+                    }
+
+                    progressBar.isVisible = false
+                    recyclerview.isVisible = true
+                    recyclerview.apply {
+                        setHasFixedSize(true)
+                        layoutManager = LinearLayoutManager(applicationContext)
+                        adapter = RankAdapter(applicationContext,contestOnly)
+                    }
+
+
+                }else{
+                    Toast.makeText(applicationContext, "Response Get Failed", Toast.LENGTH_SHORT).show()
+                }
+            }
+            override fun onFailure(call: Call<List<ModelClass>>, t: Throwable) {
+                Toast.makeText(applicationContext, "Failure + ${t.toString()}", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
     private fun getFetch(string: String?,rank:String?,state:String?,quota:String?){
@@ -115,6 +174,11 @@ class ShowCollegesActivity : AppCompatActivity() {
             }
         })
 
+    }
+
+    override fun onStart() {
+        super.onStart()
+        SelectRankActivity.mInterstitialAd?.show(this@ShowCollegesActivity)
     }
 
 

@@ -18,6 +18,7 @@ import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.ads.MobileAds
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
@@ -26,10 +27,14 @@ class MainActivity : AppCompatActivity() {
     lateinit var hbtu_btech:LinearLayout
     lateinit var about_us: RelativeLayout
     lateinit var mentor_guide_chat:LinearLayout
+    lateinit var jee_main_btech: LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        MobileAds.initialize(this) {}
+
 
 
         aktu_btech = findViewById(R.id.aktu_btech)
@@ -37,6 +42,7 @@ class MainActivity : AppCompatActivity() {
         hbtu_btech = findViewById(R.id.hbtu_btech)
         about_us = findViewById(R.id.about_us)
         mentor_guide_chat = findViewById(R.id.mentor_guide_chat)
+        jee_main_btech = findViewById(R.id.jee_main_btech)
 
 
 
@@ -58,15 +64,23 @@ class MainActivity : AppCompatActivity() {
                     .create()
                 val view = layoutInflater.inflate(R.layout.myself_profile_layout,null)
 
-
                 builder.setView(view)
                 builder.setCanceledOnTouchOutside(true)
                 builder.show()
 
-                view.setOnClickListener {
+                val myprofile_amit:LinearLayout =view.findViewById(R.id.myprofile_amit)
+                val myprofile_nitish:LinearLayout = view.findViewById(R.id.myprofile_nitish)
+
+                myprofile_amit.setOnClickListener{
                     val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.linkedin.com/in/maityamit"))
                     startActivity(browserIntent)
                 }
+
+                myprofile_nitish.setOnClickListener{
+                    val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.linkedin.com/in/infiniteesh"))
+                    startActivity(browserIntent)
+                }
+
             }
 
         }
@@ -90,15 +104,13 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        jee_main_btech.setOnClickListener{
+            val intent = Intent(this, SelectRankActivity::class.java)
+            intent.putExtra("key", "jee_main.json")
+            startActivity(intent)
+        }
+
     }
 
-
-    fun generateRandomAlphaNumericCode(length: Int): String {
-        val charPool: List<Char> = ('a'..'z') + ('A'..'Z') + ('0'..'9')
-        return (1..length)
-            .map { Random.nextInt(0, charPool.size) }
-            .map(charPool::get)
-            .joinToString("")
-    }
 
 }

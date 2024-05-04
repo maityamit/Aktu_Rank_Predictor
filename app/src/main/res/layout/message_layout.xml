@@ -34,6 +34,7 @@
             android:layout_height="wrap_content"
             android:text="Testing Test"
             android:autoLink="all"
+            android:textColorLink="@android:color/holo_blue_dark"
             android:linksClickable="true"
             android:textSize="16sp"
             android:textColor="@color/white" />
@@ -72,6 +73,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Testing Test"
+            android:textColorLink="@android:color/holo_blue_dark"
             android:autoLink="all"
             android:linksClickable="true"
             android:textSize="16sp"

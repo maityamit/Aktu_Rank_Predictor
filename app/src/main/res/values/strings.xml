@@ -22,5 +22,29 @@
         <item>EWS(OPEN)</item>
     </string-array>
 
+    <string-array name="jee_quota">
+        <item>Select</item>
+        <item>AI</item>
+        <item>HS</item>
+        <item>GO</item>
+        <item>JK</item>
+        <item>LA</item>
+        <item>OS</item>
+    </string-array>
+
+    <string-array name="jee_category">
+        <item>Select</item>
+        <item>EWS</item>
+        <item>EWS (PwD)</item>
+        <item>OBC-NCL</item>
+        <item>OBC-NCL (PwD)</item>
+        <item>OPEN</item>
+        <item>OPEN (PwD)</item>
+        <item>SC</item>
+        <item>ST</item>
+        <item>SC (PwD)</item>
+        <item>ST (PwD)</item>
+    </string-array>
+
 
 </resources>
