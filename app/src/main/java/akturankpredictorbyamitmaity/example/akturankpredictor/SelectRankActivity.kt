@@ -23,6 +23,7 @@ class SelectRankActivity : AppCompatActivity() {
     lateinit var submitButton:Button
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_select_rank)
@@ -31,8 +32,11 @@ class SelectRankActivity : AppCompatActivity() {
         inputRank = findViewById(R.id.user_rank_input)
         submitButton = findViewById(R.id.submit_button)
 
+
+
+
         val extras = intent.extras
-        var str = extras?.getString("key")
+        val str = extras?.getString("key")
 
         if(str.equals("aktu_btech.json")) textHeader.text = "AKTU B.Tech | Uttar Pradesh Technical Admission Counselling"
         if(str.equals("aktu_cuet.json")) textHeader.text = "AKTU CUET - UG | Uttar Pradesh Technical Admission Counselling"

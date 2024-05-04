@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#b0c9f1"
+    tools:context=".ChatActivity">
+
+
+    <TextView
+        android:id="@+id/chat_with_counsellor_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:textSize="20sp"
+        android:textColor="#1A1A1A"
+        android:textStyle="bold"
+        android:text="Chat with Counsellor"/>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/no_queries_yet"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:cardCornerRadius="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/ask_queries" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/black"
+                android:text="No Queries Yet!!"/>
+
+
+        </LinearLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chatViewRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/chat_with_counsellor_text"
+        tools:listitem="@layout/message_layout"
+        android:layout_marginTop="15dp"
+        android:layout_above="@id/chatViewlinear">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+    <LinearLayout
+        android:id="@+id/chatViewlinear"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
+        android:weightSum="6"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+
+        <EditText
+            android:id="@+id/user_chat_edittext"
+            android:layout_width="0dp"
+            android:layout_weight="5"
+            android:layout_height="50dp"
+            android:textCursorDrawable="@null"
+            android:hint="Enter queries"
+            android:paddingStart="20dp"
+            android:inputType="textShortMessage"
+            android:textColor="@color/white"
+            android:textColorHint="#959595"
+            android:background="@drawable/all_rounded"/>
+
+        <ImageView
+            android:id="@+id/user_chat_sendButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_send_24"
+            android:layout_gravity="center"
+            android:layout_weight="1"/>
+
+
+
+
+
+
+
+    </LinearLayout>
+
+</RelativeLayout>

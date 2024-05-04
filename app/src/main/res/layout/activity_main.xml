@@ -8,6 +8,35 @@
     tools:context=".MainActivity">
 
 
+    <LinearLayout
+        android:id="@+id/mentor_guide_chat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/all_rounded"
+        android:backgroundTint="#009688"
+        android:padding="10dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_chat_24"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_marginStart="10dp"
+            android:textStyle="bold"
+            android:text="Mentor Guide"/>
+
+
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/uptac_text"
@@ -19,7 +48,7 @@
         android:layout_marginEnd="20dp"
         android:textColor="#1A1A1A"
         android:textStyle="bold"
-        android:text="Uttar Pradesh Technical Admission Counselling (UPTAC)"/>
+        android:text="College Suggestion for BTech"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -28,7 +57,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:textColor="#2A2A2A"
-        android:text="College Predictor by rank"/>
+        android:text="Predict your college by rank"/>
 
 
 

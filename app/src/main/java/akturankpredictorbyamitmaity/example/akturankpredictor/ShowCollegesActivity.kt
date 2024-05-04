@@ -10,7 +10,6 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.isVisible
-import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import retrofit2.Call
@@ -29,6 +28,8 @@ class ShowCollegesActivity : AppCompatActivity() {
         setContentView(R.layout.activity_show_colleges)
         recyclerview = findViewById<RecyclerView>(R.id.show_colleges_recylcer)
         recyclerview.layoutManager = LinearLayoutManager(applicationContext)
+
+
 
         contestOnly = ArrayList()
         progressBar = findViewById(R.id.progress_bar)
