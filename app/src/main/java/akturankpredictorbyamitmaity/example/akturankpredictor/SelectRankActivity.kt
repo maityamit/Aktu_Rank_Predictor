@@ -52,7 +52,7 @@ class SelectRankActivity : AppCompatActivity() {
 
 
         val adRequest1 = AdRequest.Builder().build()
-        InterstitialAd.load(applicationContext,"ca-app-pub-3940256099942544/1033173712", adRequest1, object : InterstitialAdLoadCallback() {
+        InterstitialAd.load(applicationContext,"ca-app-pub-5798498875431842/7531561887", adRequest1, object : InterstitialAdLoadCallback() {
             override fun onAdFailedToLoad(adError: LoadAdError) {
                 mInterstitialAd = null
             }

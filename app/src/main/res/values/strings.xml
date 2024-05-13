@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">College Suggest for BTech</string>
+    <string name="app_name">College Predictor for BTech</string>
 
     <string-array name="quota">
         <item>Select</item>

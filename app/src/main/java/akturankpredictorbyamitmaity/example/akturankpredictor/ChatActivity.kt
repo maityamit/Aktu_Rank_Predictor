@@ -63,9 +63,9 @@ class ChatActivity : AppCompatActivity() {
 
             chatviewLayout.visibility = View.GONE
             if(userName!=null) chatList.add(Pair(Pair("selfUserID","mySelfAMIT"),userName))
-            chatList.add(Pair(Pair("mySelfAMIT","selfUserID"),"Hi, Welcome to \nCollege Suggest for BTech"))
-            chatList.add(Pair(Pair("mySelfAMIT","selfUserID"),"For the further enquiries,\nplease join to the telegram group"))
-            chatList.add(Pair(Pair("mySelfAMIT","selfUserID"),"Group Link: https://t.me/college_counseling_assistance"))
+            chatList.add(Pair(Pair("mySelfAMIT","selfUserID"),"\uD83C\uDF93 Welcome to College Predictor! \uD83C\uDF1F"))
+            chatList.add(Pair(Pair("mySelfAMIT","selfUserID"),"Need admission help? Fill our form, our expert counselors will WhatsApp you and provide free chat support throughout the college admission process:\n https://forms.gle/GDgZUTPVmD2vj7RP6"))
+            chatList.add(Pair(Pair("mySelfAMIT","selfUserID"),"Join our lively Telegram group with college seniors and future students! \uD83D\uDE80 : https://t.me/college_counseling_assistance"))
             chatList.add(Pair(Pair("mySelfAMIT","selfUserID"),"Thanks You !!"))
 
             val chatAdapter:ChatAdapter = ChatAdapter(this@ChatActivity,chatList)
@@ -84,9 +84,9 @@ class ChatActivity : AppCompatActivity() {
             }else{
                 progressDialog.show()
                 chatList.add(Pair(Pair("selfUserID","mySelfAMIT"),str))
-                chatList.add(Pair(Pair("mySelfAMIT","selfUserID"),"Hi, Welcome to \nCollege Suggest for BTech"))
-                chatList.add(Pair(Pair("mySelfAMIT","selfUserID"),"For the further enquiries,\nplease join to the telegram group"))
-                chatList.add(Pair(Pair("mySelfAMIT","selfUserID"),"Group Link: https://t.me/college_counseling_assistance"))
+                chatList.add(Pair(Pair("mySelfAMIT","selfUserID"),"\uD83C\uDF93 Welcome to College Predictor! \uD83C\uDF1F"))
+                chatList.add(Pair(Pair("mySelfAMIT","selfUserID"),"Need admission help? Fill our form, our expert counselors will WhatsApp you and provide free chat support throughout the college admission process: https://forms.gle/GDgZUTPVmD2vj7RP6"))
+                chatList.add(Pair(Pair("mySelfAMIT","selfUserID"),"Join our lively Telegram group with college seniors and future students! \uD83D\uDE80 : https://t.me/college_counseling_assistance"))
                 chatList.add(Pair(Pair("mySelfAMIT","selfUserID"),"Thanks You !!"))
 
                 val chatAdapter:ChatAdapter = ChatAdapter(this@ChatActivity,chatList)
