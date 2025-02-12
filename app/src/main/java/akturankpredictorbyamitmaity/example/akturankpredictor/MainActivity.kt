@@ -75,7 +75,6 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-
         aktu_btech.setOnClickListener {
             val intent = Intent(this, SelectRankActivity::class.java)
             intent.putExtra("key", "aktu_btech.json")
