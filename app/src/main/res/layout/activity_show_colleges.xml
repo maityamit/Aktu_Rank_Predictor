@@ -8,17 +8,17 @@
     android:layout_height="match_parent"
     tools:context=".ShowCollegesActivity">
 
-    <com.google.android.gms.ads.AdView
-        xmlns:ads="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/show_colleges_ADS"
-        android:layout_width="wrap_content"
+    <SearchView
+        android:id="@+id/search_view"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="15dp"
-        android:layout_centerHorizontal="true"
-        ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-5798498875431842/8098538098">
-    </com.google.android.gms.ads.AdView>
+        android:background="@color/white"
+        android:queryHint="Search by college name"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="15dp"
+        android:iconifiedByDefault="false"
+        android:layout_below="@id/college_header"/>
 
     <TextView
         android:id="@+id/college_header"
@@ -44,8 +44,7 @@
         android:id="@+id/show_colleges_recylcer"
         android:layout_width="match_parent"
         android:visibility="gone"
-        android:layout_below="@id/college_header"
-        android:layout_above="@id/show_colleges_ADS"
+        android:layout_below="@id/search_view"
         android:layout_height="match_parent"
         tools:listitem="@layout/college_show_layout">
 

@@ -12,15 +12,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.get
 import androidx.core.view.isVisible
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdView
-import com.google.android.gms.ads.LoadAdError
-import com.google.android.gms.ads.MobileAds
-import com.google.android.gms.ads.interstitial.InterstitialAd
-import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class SelectRankActivity : AppCompatActivity() {
 
@@ -28,11 +19,6 @@ class SelectRankActivity : AppCompatActivity() {
     lateinit var inputRank:TextView
     lateinit var submitButton:Button
     lateinit var only_for_jee_main_text:TextView
-
-
-    companion object {
-        var mInterstitialAd: InterstitialAd? = null
-    }
 
 
 
@@ -44,22 +30,6 @@ class SelectRankActivity : AppCompatActivity() {
         inputRank = findViewById(R.id.user_rank_input)
         submitButton = findViewById(R.id.submit_button)
         only_for_jee_main_text = findViewById(R.id.only_for_jee_main_text)
-
-        MobileAds.initialize(this) {}
-        val mAdView: AdView = findViewById(R.id.select_rank_ADS)
-        val adRequest = AdRequest.Builder().build()
-        mAdView.loadAd(adRequest)
-
-
-        val adRequest1 = AdRequest.Builder().build()
-        InterstitialAd.load(applicationContext,"ca-app-pub-5798498875431842/7531561887", adRequest1, object : InterstitialAdLoadCallback() {
-            override fun onAdFailedToLoad(adError: LoadAdError) {
-                mInterstitialAd = null
-            }
-            override fun onAdLoaded(interstitialAd: InterstitialAd) {
-                mInterstitialAd = interstitialAd
-            }
-        })
 
 
 

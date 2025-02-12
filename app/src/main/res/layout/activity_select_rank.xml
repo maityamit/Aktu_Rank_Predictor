@@ -41,7 +41,7 @@
         android:layout_marginEnd="10dp"
         android:textColor="@android:color/holo_red_light"
         android:layout_marginTop="15dp"
-        android:text="**Opening/Closing Ranks for Open Seats represent CRL. Opening/Closing Ranks for EWS, OBC-NCL, SC and ST Seats represent respective Category Ranks. Opening/Closing Ranks for PwD Seats represent PwD Ranks within Respective Categories.\nFor Jee Main/Adv used following ranks"/>
+        android:text="**Opening/Closing Ranks for Open Seats represent CRL. Opening/Closing Ranks for EWS, OBC-NCL, SC and ST Seats represent respective Category Ranks. Opening/Closing Ranks for PwD Seats represent PwD Ranks within Respective Categories.\nFor Jee Main/Adv used respected ranks"/>
 
 
     <RelativeLayout
@@ -145,17 +145,6 @@
 
 
             </LinearLayout>
-
-            <com.google.android.gms.ads.AdView
-                xmlns:ads="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/select_rank_ADS"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_gravity="center_horizontal"
-                ads:adSize="BANNER"
-                ads:adUnitId="ca-app-pub-5798498875431842/1961840311">
-            </com.google.android.gms.ads.AdView>
 
 
         </LinearLayout>
