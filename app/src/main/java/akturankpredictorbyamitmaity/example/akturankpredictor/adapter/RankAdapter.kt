@@ -1,5 +1,7 @@
-package akturankpredictorbyamitmaity.example.akturankpredictor
+package akturankpredictorbyamitmaity.example.akturankpredictor.adapter
 
+import akturankpredictorbyamitmaity.example.akturankpredictor.R
+import akturankpredictorbyamitmaity.example.akturankpredictor.api.ModelClass
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View

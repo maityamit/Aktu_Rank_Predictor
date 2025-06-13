@@ -1,5 +1,6 @@
-package akturankpredictorbyamitmaity.example.akturankpredictor
+package akturankpredictorbyamitmaity.example.akturankpredictor.chat
 
+import akturankpredictorbyamitmaity.example.akturankpredictor.R
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

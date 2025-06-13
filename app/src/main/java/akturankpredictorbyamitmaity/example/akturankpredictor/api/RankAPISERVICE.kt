@@ -1,4 +1,4 @@
-package akturankpredictorbyamitmaity.example.akturankpredictor
+package akturankpredictorbyamitmaity.example.akturankpredictor.api
 
 import retrofit2.Call
 import retrofit2.http.GET

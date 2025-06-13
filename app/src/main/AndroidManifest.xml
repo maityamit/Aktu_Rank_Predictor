@@ -16,7 +16,7 @@
         android:theme="@style/Theme.AKTURankPredictor"
         tools:targetApi="33">
         <activity
-            android:name=".ChatActivity"
+            android:name=".chat.ChatActivity"
             android:exported="false" />
         <activity
             android:name=".SplashActivity"

@@ -1,4 +1,4 @@
-package akturankpredictorbyamitmaity.example.akturankpredictor
+package akturankpredictorbyamitmaity.example.akturankpredictor.api
 
 data class ModelClass(
     var Institute: String,

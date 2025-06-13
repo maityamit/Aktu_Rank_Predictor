@@ -1,5 +1,6 @@
-package akturankpredictorbyamitmaity.example.akturankpredictor
+package akturankpredictorbyamitmaity.example.akturankpredictor.chat
 
+import akturankpredictorbyamitmaity.example.akturankpredictor.R
 import android.app.ProgressDialog
 import android.os.Bundle
 import android.view.View
@@ -11,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.database.DatabaseReference
 
 class ChatActivity : AppCompatActivity() {
 
@@ -20,9 +20,7 @@ class ChatActivity : AppCompatActivity() {
     lateinit var imageView: ImageView
 
     lateinit var recyclerView: RecyclerView
-    lateinit var rootRef: DatabaseReference
     var chatList = ArrayList<Pair<Pair<String, String>, String>>()
-    var selfUserID: String = ""
     lateinit var chatviewLayout: LinearLayout
     lateinit var no_queries_yet: CardView
 

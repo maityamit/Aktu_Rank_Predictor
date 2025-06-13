@@ -1,5 +1,9 @@
 package akturankpredictorbyamitmaity.example.akturankpredictor
 
+import akturankpredictorbyamitmaity.example.akturankpredictor.adapter.RankAdapter
+import akturankpredictorbyamitmaity.example.akturankpredictor.api.ModelClass
+import akturankpredictorbyamitmaity.example.akturankpredictor.api.RankAPISERVICE
+import akturankpredictorbyamitmaity.example.akturankpredictor.api.RankClient
 import android.os.Bundle
 import android.widget.ProgressBar
 import android.widget.SearchView

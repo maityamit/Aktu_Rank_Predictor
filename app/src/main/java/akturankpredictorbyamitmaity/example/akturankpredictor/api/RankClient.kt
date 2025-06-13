@@ -1,4 +1,4 @@
-package akturankpredictorbyamitmaity.example.akturankpredictor
+package akturankpredictorbyamitmaity.example.akturankpredictor.api
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
