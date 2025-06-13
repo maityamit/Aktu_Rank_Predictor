@@ -1,7 +1,6 @@
 package akturankpredictorbyamitmaity.example.akturankpredictor
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -10,17 +9,15 @@ import android.widget.Button
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.view.get
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 
 class SelectRankActivity : AppCompatActivity() {
 
-    lateinit var textHeader:TextView
-    lateinit var inputRank:TextView
-    lateinit var submitButton:Button
-    lateinit var only_for_jee_main_text:TextView
-
-
+    lateinit var textHeader: TextView
+    lateinit var inputRank: TextView
+    lateinit var submitButton: Button
+    lateinit var only_for_jee_main_text: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,26 +28,28 @@ class SelectRankActivity : AppCompatActivity() {
         submitButton = findViewById(R.id.submit_button)
         only_for_jee_main_text = findViewById(R.id.only_for_jee_main_text)
 
-
-
         val extras = intent.extras
         val str = extras?.getString("key")
 
-        if(str.equals("aktu_btech.json")) textHeader.text = "AKTU B.Tech | Uttar Pradesh Technical Admission Counselling"
-        if(str.equals("aktu_cuet.json")) textHeader.text = "AKTU CUET - UG | Uttar Pradesh Technical Admission Counselling"
-        if(str.equals("hbtu_btech.json")) textHeader.text = "HBTU - B.Tech | Uttar Pradesh Technical Admission Counselling"
-        if(str.equals("jee_main.json")) textHeader.text = "JEE Main/Adv | All India"
-
+        if (str.equals("aktu_btech.json")) {
+            textHeader.text = "AKTU B.Tech | Uttar Pradesh Technical Admission Counselling"
+        }
+        if (str.equals("aktu_cuet.json")) {
+            textHeader.text = "AKTU CUET - UG | Uttar Pradesh Technical Admission Counselling"
+        }
+        if (str.equals("hbtu_btech.json")) {
+            textHeader.text = "HBTU - B.Tech | Uttar Pradesh Technical Admission Counselling"
+        }
+        if (str.equals("jee_main.json")) {
+            textHeader.text = "JEE Main/Adv | All India"
+        }
 
         var states = resources.getStringArray(R.array.quota)
         var quotas = resources.getStringArray(R.array.category)
-
         val spinner1 = findViewById<Spinner>(R.id.spinner_state)
         val spinner2 = findViewById<Spinner>(R.id.spinner_quota)
 
-
-
-        if(str.equals("jee_main.json")){
+        if (str.equals("jee_main.json")) {
             states = resources.getStringArray(R.array.jee_quota)
             quotas = resources.getStringArray(R.array.jee_category)
             only_for_jee_main_text.visibility = View.VISIBLE
@@ -59,7 +58,8 @@ class SelectRankActivity : AppCompatActivity() {
         if (spinner1 != null) {
             val adapter = ArrayAdapter(
                 this,
-                R.layout.spinner_item, states
+                R.layout.spinner_item,
+                states
             )
             spinner1.adapter = adapter
         }
@@ -67,16 +67,16 @@ class SelectRankActivity : AppCompatActivity() {
         if (spinner2 != null) {
             val adapter = ArrayAdapter(
                 this,
-                R.layout.spinner_item, quotas
+                R.layout.spinner_item,
+                quotas
             )
             spinner2.adapter = adapter
         }
 
-        if(!str.equals("jee_main.json")){
+        if (!str.equals("jee_main.json")) {
             spinner1.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onNothingSelected(parent: AdapterView<*>?) {
+                override fun onNothingSelected(parent: AdapterView<*>?) {}
 
-                }
                 override fun onItemSelected(
                     parent: AdapterView<*>?,
                     view: View?,
@@ -88,38 +88,29 @@ class SelectRankActivity : AppCompatActivity() {
             }
         }
 
-
-
-
-        submitButton.setOnClickListener{
-            if(inputRank.text.toString().equals("")){
-                Toast.makeText(this,"Enter Your Rank",Toast.LENGTH_SHORT).show()
-            }else{
-
-
+        submitButton.setOnClickListener {
+            if (inputRank.text.toString().equals("")) {
+                Toast.makeText(this, "Enter Your Rank", Toast.LENGTH_SHORT).show()
+            } else {
                 val intent = Intent(applicationContext, ShowCollegesActivity::class.java)
-                intent.putExtra("division",str)
-                intent.putExtra("rank",inputRank.text.toString())
-                intent.putExtra("state",spinner1.selectedItem.toString())
-                if(str.equals("jee_main.json")){
-                    intent.putExtra("quota",spinner2.selectedItem.toString())
+                intent.putExtra("division", str)
+                intent.putExtra("rank", inputRank.text.toString())
+                intent.putExtra("state", spinner1.selectedItem.toString())
+                if (str.equals("jee_main.json")) {
+                    intent.putExtra("quota", spinner2.selectedItem.toString())
                     startActivity(intent)
-                }else{
-                    if(spinner1.selectedItem.toString().equals("Uttar Pradesh")) intent.putExtra("quota",spinner2.selectedItem.toString())
-                    else if(spinner1.selectedItem.toString().equals("Select")) intent.putExtra("quota",spinner2.selectedItem.toString())
-                    else intent.putExtra("quota","Select")
+                } else {
+                    if (spinner1.selectedItem.toString().equals("Uttar Pradesh")) {
+                        intent.putExtra("quota", spinner2.selectedItem.toString())
+                    } else if (spinner1.selectedItem.toString().equals("Select")) {
+                        intent.putExtra("quota", spinner2.selectedItem.toString())
+                    } else {
+                        intent.putExtra("quota", "Select")
+                    }
 
                     startActivity(intent)
                 }
-
-
-
             }
         }
-
-
-
     }
-
-
 }

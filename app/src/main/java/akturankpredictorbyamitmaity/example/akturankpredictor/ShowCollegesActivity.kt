@@ -81,11 +81,19 @@ class ShowCollegesActivity : AppCompatActivity() {
         recyclerview.adapter?.notifyDataSetChanged()
     }
 
-    private fun getFetchForJeeMain(division: String?, rank: String?, state: String?, quota: String?) {
+    private fun getFetchForJeeMain(
+        division: String?,
+        rank: String?,
+        state: String?,
+        quota: String?
+    ) {
         val destinationService = RankClient.buildService(RankAPISERVICE::class.java)
         val requestCallLeetCode = destinationService.getApiResponseAKTUBTECH(division)
         requestCallLeetCode.enqueue(object : Callback<List<ModelClass>> {
-            override fun onResponse(call: Call<List<ModelClass>>, response: Response<List<ModelClass>>) {
+            override fun onResponse(
+                call: Call<List<ModelClass>>,
+                response: Response<List<ModelClass>>
+            ) {
                 if (response.isSuccessful) {
                     val symptomsList = response.body()!!
                     val iterator = symptomsList.iterator()
@@ -100,7 +108,11 @@ class ShowCollegesActivity : AppCompatActivity() {
                     filteredList.addAll(contestOnly)
                     if (contestOnly.size == 0) {
                         progressBar.isVisible = false
-                        Toast.makeText(applicationContext, "Sorry! No Colleges Found", Toast.LENGTH_LONG).show()
+                        Toast.makeText(
+                            applicationContext,
+                            "Sorry! No Colleges Found",
+                            Toast.LENGTH_LONG
+                        ).show()
                     }
                     progressBar.isVisible = false
                     recyclerview.isVisible = true
@@ -110,12 +122,14 @@ class ShowCollegesActivity : AppCompatActivity() {
                         adapter = RankAdapter(applicationContext, filteredList)
                     }
                 } else {
-                    Toast.makeText(applicationContext, "Response Get Failed", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, "Response Get Failed", Toast.LENGTH_SHORT)
+                        .show()
                 }
             }
 
             override fun onFailure(call: Call<List<ModelClass>>, t: Throwable) {
-                Toast.makeText(applicationContext, "Failure + ${t.toString()}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "Failure + $t", Toast.LENGTH_SHORT)
+                    .show()
             }
         })
     }
@@ -124,28 +138,38 @@ class ShowCollegesActivity : AppCompatActivity() {
         val destinationService = RankClient.buildService(RankAPISERVICE::class.java)
         val requestCallLeetCode = destinationService.getApiResponseAKTUBTECH(string)
         requestCallLeetCode.enqueue(object : Callback<List<ModelClass>> {
-            override fun onResponse(call: Call<List<ModelClass>>, response: Response<List<ModelClass>>) {
+            override fun onResponse(
+                call: Call<List<ModelClass>>,
+                response: Response<List<ModelClass>>
+            ) {
                 if (response.isSuccessful) {
                     val symptomsList = response.body()!!
                     val iterator = symptomsList.iterator()
                     iterator.forEach {
                         if (rank != null && it.CR >= rank.toInt()) {
                             if (state.equals("Uttar Pradesh") && it.Quota == "Home State") {
-                                if (quota == "Select") contestOnly.add(it)
-                                else if (quota == it.Category) contestOnly.add(it)
+                                if (quota == "Select") {
+                                    contestOnly.add(it)
+                                } else if (quota == it.Category) contestOnly.add(it)
                             } else if (state.equals("Select")) {
-                                if (quota == "Select") contestOnly.add(it)
-                                else if (quota == it.Category) contestOnly.add(it)
+                                if (quota == "Select") {
+                                    contestOnly.add(it)
+                                } else if (quota == it.Category) contestOnly.add(it)
                             } else if (it.Quota == "All India") {
-                                if (quota == "Select") contestOnly.add(it)
-                                else if (quota == it.Category) contestOnly.add(it)
+                                if (quota == "Select") {
+                                    contestOnly.add(it)
+                                } else if (quota == it.Category) contestOnly.add(it)
                             }
                         }
                     }
                     filteredList.addAll(contestOnly)
                     if (contestOnly.size == 0) {
                         progressBar.isVisible = false
-                        Toast.makeText(applicationContext, "Sorry! No Colleges Found", Toast.LENGTH_LONG).show()
+                        Toast.makeText(
+                            applicationContext,
+                            "Sorry! No Colleges Found",
+                            Toast.LENGTH_LONG
+                        ).show()
                     }
                     progressBar.isVisible = false
                     recyclerview.isVisible = true
@@ -155,12 +179,14 @@ class ShowCollegesActivity : AppCompatActivity() {
                         adapter = RankAdapter(applicationContext, filteredList)
                     }
                 } else {
-                    Toast.makeText(applicationContext, "Response Get Failed", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, "Response Get Failed", Toast.LENGTH_SHORT)
+                        .show()
                 }
             }
 
             override fun onFailure(call: Call<List<ModelClass>>, t: Throwable) {
-                Toast.makeText(applicationContext, "Failure + ${t.toString()}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "Failure + $t", Toast.LENGTH_SHORT)
+                    .show()
             }
         })
     }
