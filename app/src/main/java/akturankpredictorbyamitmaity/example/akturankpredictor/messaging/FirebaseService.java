@@ -40,7 +40,12 @@ public class FirebaseService extends FirebaseMessagingService {
 
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
-        PendingIntent intent1 = PendingIntent.getActivities(this, 0, new Intent[]{intent}, PendingIntent.FLAG_ONE_SHOT);
+        PendingIntent intent1 = PendingIntent.getActivities(
+                this,
+                0,
+                new Intent[]{intent},
+                PendingIntent.FLAG_ONE_SHOT | PendingIntent.FLAG_IMMUTABLE
+        );
         Notification notification;
 
 
