@@ -13,7 +13,7 @@ ktlint {
 
 android {
     namespace 'akturankpredictorbyamitmaity.example.akturankpredictor'
-    compileSdk 34
+    compileSdk 35
 
     defaultConfig {
         applicationId "akturankpredictorbyamitmaity.example.akturankpredictor"
