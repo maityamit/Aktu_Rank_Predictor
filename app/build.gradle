@@ -18,9 +18,9 @@ android {
     defaultConfig {
         applicationId "akturankpredictorbyamitmaity.example.akturankpredictor"
         minSdk 26
-        targetSdk 34
-        versionCode 8
-        versionName "2.0.0001D"
+        targetSdk 35
+        versionCode 9
+        versionName "2.0.0001E"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
