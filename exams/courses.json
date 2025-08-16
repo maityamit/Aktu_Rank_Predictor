@@ -1,15 +1,15 @@
 [
-  {
-    "name": "Test Course <> Don't Purchase ",
-    "link": "https://play.google.com/store/apps/details?id=akturankpredictorbyamitmaity.example.akturankpredictor",
-    "image": "https://img-c.udemycdn.com/course/750x422/1234567_abc123.jpg",
-    "price": "₹x,xxx",
-    "mentors": ["Amit Maity", "Nitish Kumar"],
-    "last_date": "31st Dec 2024",
-    "description": "Lorem Ips",
-    "duration": "6 Months",
-    "rating": 4.8,
-    "students_enrolled": 1250,
-    "is_featured": true
-  }
+//  {
+//    "name": "Test Course <> Don't Purchase ",
+//    "link": "https://play.google.com/store/apps/details?id=akturankpredictorbyamitmaity.example.akturankpredictor",
+//    "image": "https://img-c.udemycdn.com/course/750x422/1234567_abc123.jpg",
+//    "price": "₹x,xxx",
+//    "mentors": ["Amit Maity", "Nitish Kumar"],
+//    "last_date": "31st Dec 2024",
+//    "description": "Lorem Ips",
+//    "duration": "6 Months",
+//    "rating": 4.8,
+//    "students_enrolled": 1250,
+//    "is_featured": true
+//  }
 ]

@@ -1,41 +1,31 @@
-# AKTU Rank Predictor - Multi-Exam College Predictor
+# 🎓 AKTU Rank Predictor - Multi-Exam College Predictor with Live Courses
 
-A modern, scalable Android application that helps students predict their college admissions across multiple entrance exams including JEE Main, JEE Advance, AKTU B.Tech, and more.
+[![Android](https://img.shields.io/badge/Android-API%2026+-green.svg)](https://developer.android.com/about/versions)
+[![Kotlin](https://img.shields.io/badge/Kotlin-1.8+-blue.svg)](https://kotlinlang.org/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-## 🔗 Download the App [3200+ Downloads]
+A comprehensive Android application that helps students predict college admissions based on their rank and preferences, now featuring **Live Courses** as the primary revenue stream.
 
-<a href="https://play.google.com/store/apps/details?id=akturankpredictorbyamitmaity.example.akturankpredictor">
-<img src="https://github.com/maityamit/Heritsm-Heritage_of_India-Application/blob/master/Demo/800px-Google_Play_Store_badge_EN.svg.png" width="20%" /></a>
+## 🚀 Features
 
-## 🎯 Features
+### **🎯 Core Functionality**
+- **Multi-Exam Support**: JEE Main, JEE Advance, AKTU B.Tech, AKTU CUET, HBTU B.Tech, WBJEE
+- **Advanced Filtering**: Rank, State, Gender, Quota-based college matching
+- **Real-time Data**: Live college data from GitHub Pages API
+- **Offline Configuration**: Exam and filter options loaded from local assets
 
-### ✨ **Multi-Exam Support**
-- **JEE Main**: All India engineering colleges
-- **JEE Advance**: IITs and premier institutions
-- **AKTU B.Tech**: Uttar Pradesh technical colleges
-- **AKTU CUET**: CUET-based admissions
-- **HBTU B.Tech**: Harcourt Butler Technical University
-- **Extensible**: Easy to add new exams via JSON configuration
+### **🔥 Live Courses (Primary Revenue Stream)**
+- **Featured Course Display**: Prominent courses section on home page
+- **Course Management**: Complete course catalog with search functionality
+- **Dynamic Content**: Course images, pricing, mentors, enrollment dates
+- **Direct Enrollment**: One-click course enrollment via external links
+- **Revenue Optimization**: Featured courses, ratings, student counts for social proof
 
-### 🎨 **Modern UI/UX**
-- **Material Design**: Clean, modern interface
-- **Dynamic Icons**: Exam-specific icons loaded from JSON
-- **Circular Progress**: Smooth loading animations
-- **Responsive Design**: Works on all screen sizes
-- **Dark/Light Themes**: Adaptive color schemes
-
-### 🔍 **Advanced Filtering**
-- **Rank-based**: Predict colleges within your rank range
-- **State-wise**: Filter by home state or other states
-- **Quota-based**: General, EWS, OBC, SC, ST categories
-- **Gender-specific**: Male, Female, or All categories
-- **Real-time Search**: Search colleges by name, course, or state
-
-### 📊 **Data Management**
-- **Offline Configuration**: Exam lists and filter options stored locally
-- **Online Data**: College data fetched from APIs
-- **Standardized Format**: Unified JSON structure for all exams
-- **Caching**: Efficient data storage and retrieval
+### **🎨 Modern UI/UX**
+- **Material Design**: Clean, modern interface with gradients and animations
+- **Responsive Layout**: Optimized for all screen sizes and orientations
+- **Loading States**: Circular progress indicators and smooth transitions
+- **Search Functionality**: Real-time search across courses and colleges
 
 ## 🏗️ Architecture
 
@@ -56,26 +46,22 @@ A modern, scalable Android application that helps students predict their college
 └─────────────────────────────────────────────────────────────┘
 ```
 
-### **Key Components**
+### **Layer Breakdown**
 
-#### **📱 Presentation Layer**
-- **MainActivity**: Home screen with exam selection
-- **SelectRankActivity**: User preferences and filters
-- **ShowCollegesActivity**: College results display
-- **ChatActivity**: Mentor guide chat feature
-- **Adapters**: RecyclerView adapters for lists
+#### **Presentation Layer**
+- **Activities**: MainActivity, SelectRankActivity, ShowCollegesActivity, CoursesActivity
+- **Adapters**: ExamAdapter, CollegeAdapter, CourseAdapter
+- **UI Components**: Custom drawables, layouts, animations
 
-#### **🔧 Domain Layer**
-- **CollegeService**: Business logic for college operations
-- **FilterOptionsService**: Filter management
-- **ExamService**: Exam data management
-- **Validation**: Input validation and error handling
+#### **Domain Layer**
+- **Services**: CollegeService, ExamService, CourseService, FilterOptionsService
+- **Business Logic**: Filtering algorithms, validation, data processing
+- **Use Cases**: College prediction, course management, user preferences
 
-#### **💾 Data Layer**
-- **CollegeRepository**: College data operations
-- **FilterOptionsRepository**: Filter options management
-- **ExamRepository**: Exam configuration management
-- **ApiClient**: Retrofit-based API communication
+#### **Data Layer**
+- **Repositories**: CollegeRepository, ExamRepository, CourseRepository
+- **API Services**: Retrofit-based network calls
+- **Models**: College, Exam, Course, UserPreferences, ApiResponse
 
 ## 🛠️ Technical Stack
 
@@ -86,42 +72,22 @@ A modern, scalable Android application that helps students predict their college
 - **UI Framework**: Android Views with Material Design
 
 ### **Libraries & Dependencies**
-```gradle
-// Networking
-implementation 'com.squareup.retrofit2:retrofit:2.11.0'
-implementation 'com.squareup.retrofit2:converter-gson:2.11.0'
-implementation 'com.squareup.okhttp3:logging-interceptor:4.12.0'
-
-// Asynchronous Programming
-implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
-implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3'
-
-// Lifecycle & Architecture Components
-implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.7.0'
-implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0'
-
-// UI Components
-implementation 'com.google.android.material:material:1.12.0'
-implementation 'androidx.cardview:cardview:1.0.0'
-implementation 'de.hdodenhof:circleimageview:3.1.0'
-
-// Firebase (Optional)
-implementation platform('com.google.firebase:firebase-bom:33.1.2')
-implementation 'com.google.firebase:firebase-messaging-ktx'
-implementation 'com.google.firebase:firebase-analytics-ktx'
-```
+- **Networking**: Retrofit 2.11.0, OkHttp 4.12.0
+- **Image Loading**: Glide 4.16.0
+- **Asynchronous**: Kotlin Coroutines 1.7.3
+- **Lifecycle**: AndroidX Lifecycle 2.7.0
+- **Firebase**: Messaging, Analytics, In-App Messaging
+- **UI Components**: Material Design, CardView, RecyclerView
 
 ## 📊 Data Structure
 
-### **Standardized JSON Format**
-All college data follows this unified structure:
-
+### **Standardized College Data Format**
 ```json
 {
   "institute": "College Name",
   "course": "Course Name",
   "state_quota": "HS/OS/AI",
-  "quota": "General/Ews/Obc/Sc/St",
+  "quota": "General/EWS/OBC/SC/ST",
   "gender": "Both/Male/Female",
   "or": 12345,
   "cr": 67890,
@@ -129,24 +95,29 @@ All college data follows this unified structure:
 }
 ```
 
+### **Course Data Structure**
+```json
+{
+  "name": "Course Name",
+  "link": "Enrollment URL",
+  "image": "Course Image URL",
+  "price": "₹2,999",
+  "mentors": ["Instructor 1", "Instructor 2"],
+  "last_date": "31st Dec 2024",
+  "description": "Course description",
+  "duration": "6 Months",
+  "rating": 4.8,
+  "students_enrolled": 1250,
+  "is_featured": true
+}
+```
+
 ### **Field Definitions**
-
-#### **state_quota Values**
-- **HS**: Home State (only for students from that state)
-- **OS**: Other State (only for students from other states)
-- **AI**: All India (for students from any state)
-
-#### **quota Values**
-- **General**: General category
-- **Ews**: Economically Weaker Section
-- **Obc**: Other Backward Classes
-- **Sc**: Scheduled Castes
-- **St**: Scheduled Tribes
-
-#### **gender Values**
-- **Both**: Open for all genders
-- **Male**: Male only
-- **Female**: Female only
+- **state_quota**: HS (Home State), OS (Other State), AI (All India)
+- **quota**: General, EWS, OBC, SC, ST categories
+- **gender**: Both, Male, Female preferences
+- **or/cr**: Opening Rank and Closing Rank
+- **is_featured**: Featured course for home page display
 
 ## 🚀 Getting Started
 
@@ -154,70 +125,56 @@ All college data follows this unified structure:
 - Android Studio Arctic Fox or later
 - Android SDK API 26+
 - Kotlin 1.8+
-- Gradle 7.0+
+- Internet connection for API calls
 
 ### **Installation**
-1. Clone the repository
+1. Clone the repository:
    ```bash
    git clone https://github.com/maityamit/Aktu_Rank_Predictor.git
    ```
 
 2. Open the project in Android Studio
 
-3. Sync Gradle files and build the project
+3. Sync Gradle dependencies
 
-4. Run the app on an emulator or device
+4. Configure Firebase (optional):
+   - Add `google-services.json` to the `app/` directory
+   - Enable Firebase services in the Firebase Console
+
+5. Build and run the application
 
 ### **Configuration**
-1. **Add Exam Data**: Place JSON files in the root directory
-2. **Update API Endpoints**: Modify `ApiClient.kt` if needed
-3. **Configure Firebase**: Add `google-services.json` for notifications
+- **API Base URL**: `https://maityamit.github.io/Aktu_Rank_Predictor/`
+- **Course Endpoint**: `/exams/courses.json`
+- **College Endpoints**: `/exams/{examId}.json`
+- **Local Assets**: `exams.json`, `filter_options.json`
 
 ## 📁 Project Structure
 
 ```
 app/src/main/
 ├── java/akturankpredictorbyamitmaity/example/akturankpredictor/
-│   ├── adapter/                 # RecyclerView adapters
-│   │   ├── CollegeAdapter.kt
-│   │   └── ExamAdapter.kt
-│   ├── api/                    # API interfaces and clients
-│   │   ├── ApiClient.kt
-│   │   └── CollegeApiService.kt
-│   ├── chat/                   # Chat functionality
-│   │   ├── ChatActivity.kt
-│   │   └── ChatAdapter.kt
-│   ├── data/                   # Data layer
-│   │   ├── model/              # Data models
-│   │   │   ├── College.kt
-│   │   │   ├── Exam.kt
-│   │   │   ├── UserPreferences.kt
-│   │   │   └── ApiResponse.kt
-│   │   └── repository/         # Data repositories
-│   │       ├── CollegeRepository.kt
-│   │       ├── ExamRepository.kt
-│   │       └── FilterOptionsRepository.kt
-│   ├── messaging/              # Firebase messaging
-│   │   └── FirebaseService.java
-│   ├── service/                # Business logic services
-│   │   ├── CollegeService.kt
-│   │   ├── ExamService.kt
-│   │   └── FilterOptionsService.kt
-│   ├── MainActivity.kt         # Main entry point
-│   ├── SelectRankActivity.kt   # User preferences
-│   ├── ShowCollegesActivity.kt # Results display
-│   └── SplashActivity.kt       # Splash screen
-├── res/                        # Resources
-│   ├── drawable/               # Images and drawables
-│   ├── layout/                 # UI layouts
-│   ├── values/                 # Strings, colors, themes
-│   └── assets/                 # JSON configuration files
-└── AndroidManifest.xml         # App manifest
+│   ├── adapter/           # RecyclerView adapters
+│   ├── chat/             # Chat functionality
+│   ├── data/             # Data layer
+│   │   ├── api/          # API services
+│   │   ├── model/        # Data models
+│   │   └── repository/   # Data repositories
+│   ├── messaging/        # Firebase messaging
+│   ├── service/          # Business logic services
+│   └── *.kt              # Activity files
+├── res/
+│   ├── drawable/         # Custom drawables and backgrounds
+│   ├── layout/           # UI layouts
+│   └── values/           # Resources and themes
+└── assets/
+    ├── exams.json        # Exam configuration
+    └── filter_options.json # Filter options
 ```
 
-## 🔧 Configuration Files
+## ⚙️ Configuration Files
 
-### **exams.json** - Exam Configuration
+### **exams.json**
 ```json
 [
   {
@@ -231,10 +188,10 @@ app/src/main/
 ]
 ```
 
-### **filter_options.json** - Filter Options
+### **filter_options.json**
 ```json
 {
-  "states": ["All", "Uttar Pradesh", "Delhi", "Maharashtra"],
+  "states": ["All", "Uttar Pradesh", "Delhi", ...],
   "genders": ["All", "Male", "Female"],
   "quotas": ["All", "General", "Ews", "Obc", "Sc", "St"]
 }
@@ -243,29 +200,29 @@ app/src/main/
 ## 🎨 UI Components
 
 ### **Custom Drawables**
-- **Circular Progress**: Custom animated progress indicators
-- **Gradient Backgrounds**: Modern gradient backgrounds
-- **Rounded Corners**: Consistent border radius
-- **Card Elevations**: Material Design shadows
+- **Gradient Backgrounds**: Modern gradient designs
+- **Circular Progress**: Custom loading indicators
+- **Button Styles**: Consistent button designs
+- **Card Backgrounds**: Material Design cards
 
 ### **Color Scheme**
 - **Primary**: #1976D2 (Blue)
-- **Secondary**: #42A5F5 (Light Blue)
-- **Background**: Light gradient backgrounds
-- **Text**: Dark gray (#1A1A1A) for readability
+- **Secondary**: #FF6B35 (Orange)
+- **Success**: #4CAF50 (Green)
+- **Warning**: #FF9800 (Orange)
+- **Error**: #F44336 (Red)
 
 ## 🔄 State Management
 
 ### **Loading States**
-- **Button Loading**: Circular progress in buttons
-- **Screen Loading**: Full-screen loading with messages
+- **ApiResponse**: Sealed class for Success/Error/Loading
+- **Progress Indicators**: Circular progress bars
 - **Error Handling**: User-friendly error messages
-- **Success Feedback**: Toast messages for successful operations
 
 ### **Data Flow**
 1. **User Input** → Validation → API Call
-2. **API Response** → Data Processing → Filtering
-3. **Filtered Results** → UI Update → User Display
+2. **API Response** → Data Processing → UI Update
+3. **Filtering** → Business Logic → Results Display
 
 ## 🧪 Testing
 
@@ -277,17 +234,7 @@ app/src/main/
 ### **UI Tests**
 - Activity navigation testing
 - User interaction testing
-- Screen state testing
-
-## 📱 Screenshots
-
-<p align="center">
-<img src="https://github.com/maityamit/Aktu_Rank_Predictor/blob/main/Demo/banner.png" width="90%" />
-</p>
-
-| ![Home Screen](Demo/1.png) | ![Select Rank](Demo/2.png) | ![Results](Demo/3.png) |
-|:--------------------------:|:---------------------------:|:----------------------:|
-| **Home Screen** - Modern exam selection | **Select Rank** - User preferences | **Results** - College predictions |
+- Layout validation
 
 ## 🤝 Contributing
 
@@ -297,30 +244,32 @@ app/src/main/
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
+### **Development Guidelines**
+- Follow Kotlin coding conventions
+- Use meaningful variable and function names
+- Add comments for complex logic
+- Maintain clean architecture principles
+
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 👨‍💻 Developers
 
-**Amit Maity** - Lead Developer
-- Email: maityamit307@gmail.com
-- LinkedIn: [Amit Maity](https://www.linkedin.com/in/maityamit)
-
-**Nitish Kumar** - UI/UX Developer
-- LinkedIn: [Nitish Kumar](https://www.linkedin.com/in/infiniteesh)
+- **Amit Maity** - [LinkedIn](https://www.linkedin.com/in/maityamit)
+- **Nitish Kumar** - [LinkedIn](https://www.linkedin.com/in/infiniteesh)
 
 ## 🙏 Acknowledgments
 
-- **AKTU**: For providing admission data
-- **JEE**: For examination structure
-- **Material Design**: For UI guidelines
-- **Open Source Community**: For libraries and tools
+- **Material Design** for UI components
+- **Retrofit** for network communication
+- **Glide** for image loading
+- **Firebase** for backend services
 
 ## 📞 Support
 
-For support, email maityamit307@gmail.com or create an issue in this repository.
+For support, email support@akturankpredictor.com or create an issue in the repository.
 
 ---
 
-**Made with ❤️ for students by students**
+**Note**: This application is designed to help students make informed decisions about college admissions. The predictions are based on historical data and should be used as a reference only.
