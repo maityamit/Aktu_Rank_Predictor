@@ -16,6 +16,14 @@
     "isActive": true
   },
   {
+    "id": "wbjee",
+    "name": "WBJEE",
+    "endpoint": "wbjee",
+    "description": "West Bengal Joint Entrance Examination",
+    "icon": "wbjee_logo",
+    "isActive": true
+  },
+  {
     "id": "aktu_btech",
     "name": "AKTU B.Tech",
     "endpoint": "aktu_btech",
