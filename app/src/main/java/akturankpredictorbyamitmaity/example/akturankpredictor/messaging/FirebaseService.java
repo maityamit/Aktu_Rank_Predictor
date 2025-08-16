@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -24,11 +25,13 @@ import akturankpredictorbyamitmaity.example.akturankpredictor.R;
 public class FirebaseService extends FirebaseMessagingService {
 
     private final String ChannelID = "channel_id";
+    private static final String TAG = "FirebaseService";
 
     @Override
     public void onMessageReceived(@NonNull RemoteMessage message) {
         super.onMessageReceived(message);
-
+        
+        Log.d(TAG, "From: " + message.getFrom());
 
         Intent intent = new Intent(this, MainActivity.class);
         NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
@@ -46,8 +49,8 @@ public class FirebaseService extends FirebaseMessagingService {
                 new Intent[]{intent},
                 PendingIntent.FLAG_ONE_SHOT | PendingIntent.FLAG_IMMUTABLE
         );
+        
         Notification notification;
-
 
         notification = new NotificationCompat.Builder(this, ChannelID)
                 .setContentTitle(message.getData().get("title"))
@@ -58,19 +61,24 @@ public class FirebaseService extends FirebaseMessagingService {
                 .build();
 
         manager.notify(notificationID, notification);
+    }
 
-
+    @Override
+    public void onNewToken(@NonNull String token) {
+        super.onNewToken(token);
+        Log.d(TAG, "Refreshed token: " + token);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void createNotificationChannel(NotificationManager manager) {
-
-        NotificationChannel channel = new NotificationChannel(ChannelID, "channel_Name", NotificationManager.IMPORTANCE_HIGH);
-        channel.setDescription("my descriptio");
+        NotificationChannel channel = new NotificationChannel(
+            ChannelID, 
+            "AKTU Rank Predictor", 
+            NotificationManager.IMPORTANCE_HIGH
+        );
+        channel.setDescription("Notifications for AKTU Rank Predictor");
         channel.enableLights(true);
-        ;
-        channel.setLightColor(Color.WHITE);
-
+        channel.setLightColor(Color.BLUE);
         manager.createNotificationChannel(channel);
     }
 }

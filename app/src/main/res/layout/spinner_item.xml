@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <TextView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:textSize="17sp"
-    android:gravity="left"
-    android:text="Amit Maity"
-    android:textColor="#A9A9A9"
-    android:padding="5dip">
-
-</TextView>
+    android:layout_height="56dp"
+    android:gravity="center_vertical"
+    android:padding="16dp"
+    android:text="Select Option"
+    android:textColor="#1A1A1A"
+    android:textSize="16sp" />

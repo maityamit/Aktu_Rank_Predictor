@@ -1,55 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:background="#1A1A1A"
     android:layout_height="match_parent"
-    tools:context=".ShowCollegesActivity">
+    android:background="#b0c9f1">
+
+    <TextView
+        android:id="@+id/college_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:text="College Results"
+        android:textColor="#1A1A1A"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
     <SearchView
         android:id="@+id/search_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:queryHint="Search by college name"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="15dp"
-        android:iconifiedByDefault="false"
-        android:layout_below="@id/college_header"/>
+        android:layout_below="@id/college_header"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/rounded_corner"
+        android:queryHint="Search colleges..."
+        android:iconifiedByDefault="false" />
+
+    <!-- Loading State with Circular Progress -->
+    <LinearLayout
+        android:id="@+id/loading_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginBottom="20dp"
+            android:indeterminateDrawable="@drawable/circular_progress" />
+
+        <TextView
+            android:id="@+id/loading_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Finding colleges for your preferences..."
+            android:textColor="#1A1A1A"
+            android:textSize="16sp" />
+
+    </LinearLayout>
 
     <TextView
-        android:id="@+id/college_header"
+        android:id="@+id/no_results_text"
         android:layout_width="match_parent"
-        android:textSize="17sp"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
-        android:gravity="center"
-        android:textColor="@android:color/white"
-        android:background="@drawable/all_rounded"
-        android:layout_margin="15dp"
-        android:padding="10dp"
-        android:layout_height="wrap_content"/>
-
-    <ProgressBar
-        android:id="@+id/progress_bar"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_marginTop="100dp"/>
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:text="No colleges found"
+        android:textColor="#666666"
+        android:textSize="16sp"
+        android:visibility="gone" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/show_colleges_recylcer"
         android:layout_width="match_parent"
-        android:visibility="gone"
-        android:layout_below="@id/search_view"
         android:layout_height="match_parent"
-        tools:listitem="@layout/college_show_layout">
-
-
-    </androidx.recyclerview.widget.RecyclerView>
-
+        android:layout_below="@id/search_view"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp" />
 
 </RelativeLayout>

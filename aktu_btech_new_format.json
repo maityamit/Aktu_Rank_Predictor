@@ -1,0 +1,72 @@
+[
+  {
+    "institute": "FACULTY OF ENGG, AGRA COLLEGE,AGRA",
+    "course": "Computer Science and Engineering",
+    "state_quota": "AI",
+    "quota": "General",
+    "gender": "Both",
+    "or": 906831,
+    "cr": 1414648,
+    "state": "Uttar Pradesh"
+  },
+  {
+    "institute": "FACULTY OF ENGG, AGRA COLLEGE,AGRA",
+    "course": "Computer Science and Engineering (FW)",
+    "state_quota": "HS",
+    "quota": "General",
+    "gender": "Both",
+    "or": 1152709,
+    "cr": 1152709,
+    "state": "Uttar Pradesh"
+  },
+  {
+    "institute": "RAJA BALWANT SINGH ENGINEERING TECHNICAL CAMPUS,AGRA",
+    "course": "Computer Science and Engineering",
+    "state_quota": "AI",
+    "quota": "General",
+    "gender": "Both",
+    "or": 565519,
+    "cr": 565519,
+    "state": "Uttar Pradesh"
+  },
+  {
+    "institute": "RAJA BALWANT SINGH ENGINEERING TECHNICAL CAMPUS,AGRA",
+    "course": "Computer Science and Engineering",
+    "state_quota": "HS",
+    "quota": "General",
+    "gender": "Female",
+    "or": 972543,
+    "cr": 972543,
+    "state": "Uttar Pradesh"
+  },
+  {
+    "institute": "AJAY KUMAR GARG ENGG. COLLEGE,GHAZIABAD",
+    "course": "Computer Science and Engineering",
+    "state_quota": "AI",
+    "quota": "General",
+    "gender": "Both",
+    "or": 101166,
+    "cr": 104584,
+    "state": "Uttar Pradesh"
+  },
+  {
+    "institute": "AJAY KUMAR GARG ENGG. COLLEGE,GHAZIABAD",
+    "course": "Computer Science and Engineering",
+    "state_quota": "HS",
+    "quota": "OBC",
+    "gender": "Both",
+    "or": 215688,
+    "cr": 215688,
+    "state": "Uttar Pradesh"
+  },
+  {
+    "institute": "AJAY KUMAR GARG ENGG. COLLEGE,GHAZIABAD",
+    "course": "Computer Science and Engineering",
+    "state_quota": "HS",
+    "quota": "General",
+    "gender": "Female",
+    "or": 162152,
+    "cr": 180496,
+    "state": "Uttar Pradesh"
+  }
+]

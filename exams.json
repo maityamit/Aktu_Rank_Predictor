@@ -1,0 +1,30 @@
+[
+  {
+    "id": "aktu_btech",
+    "name": "AKTU B.Tech",
+    "endpoint": "aktu_btech",
+    "description": "Uttar Pradesh Technical Admission Counselling",
+    "isActive": true
+  },
+  {
+    "id": "aktu_cuet",
+    "name": "AKTU CUET (UG)",
+    "endpoint": "aktu_cuet",
+    "description": "Uttar Pradesh Technical Admission Counselling - CUET",
+    "isActive": true
+  },
+  {
+    "id": "hbtu_btech",
+    "name": "HBTU B.Tech",
+    "endpoint": "hbtu_btech",
+    "description": "Harcourt Butler Technical University",
+    "isActive": true
+  },
+  {
+    "id": "jee_main",
+    "name": "JEE Main/Advanced",
+    "endpoint": "jee_main",
+    "description": "All India Engineering Entrance Examination",
+    "isActive": true
+  }
+]
