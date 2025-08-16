@@ -2325,7 +2325,7 @@
    "state_quota": "HS",
    "quota": "General",
    "gender": "Both",
-   "or": 173666.5,
+   "or": 173666,
    "cr": 175965,
    "state": "Uttar Pradesh"
  },
@@ -3075,8 +3075,8 @@
    "state_quota": "AI",
    "quota": "General",
    "gender": "Both",
-   "or": 30752.6,
-   "cr": 30752.6,
+   "or": 30752,
+   "cr": 30752,
    "state": "Uttar Pradesh"
  },
  {
@@ -7556,7 +7556,7 @@
    "quota": "General",
    "gender": "Both",
    "or": 175455,
-   "cr": 179323.5,
+   "cr": 179323,
    "state": "Uttar Pradesh"
  },
  {
@@ -7836,7 +7836,7 @@
    "quota": "General",
    "gender": "Both",
    "or": 121277,
-   "cr": 123916.5,
+   "cr": 123916,
    "state": "Uttar Pradesh"
  },
  {
@@ -9075,7 +9075,7 @@
    "state_quota": "AI",
    "quota": "General",
    "gender": "Both",
-   "or": 333527.5,
+   "or": 333527,
    "cr": 387435,
    "state": "Uttar Pradesh"
  },
@@ -9995,7 +9995,7 @@
    "state_quota": "HS",
    "quota": "General",
    "gender": "Both",
-   "or": 232068.5,
+   "or": 232068,
    "cr": 232708,
    "state": "Uttar Pradesh"
  },
