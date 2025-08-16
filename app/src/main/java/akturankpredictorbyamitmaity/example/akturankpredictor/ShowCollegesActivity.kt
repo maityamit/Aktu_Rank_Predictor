@@ -1,197 +1,181 @@
 package akturankpredictorbyamitmaity.example.akturankpredictor
 
-import akturankpredictorbyamitmaity.example.akturankpredictor.adapter.RankAdapter
-import akturankpredictorbyamitmaity.example.akturankpredictor.api.ModelClass
-import akturankpredictorbyamitmaity.example.akturankpredictor.api.RankAPISERVICE
-import akturankpredictorbyamitmaity.example.akturankpredictor.api.RankClient
+import akturankpredictorbyamitmaity.example.akturankpredictor.adapter.CollegeAdapter
+import akturankpredictorbyamitmaity.example.akturankpredictor.data.model.ApiResponse
+import akturankpredictorbyamitmaity.example.akturankpredictor.data.model.College
+import akturankpredictorbyamitmaity.example.akturankpredictor.data.model.UserPreferences
+import akturankpredictorbyamitmaity.example.akturankpredictor.data.repository.CollegeRepository
+import akturankpredictorbyamitmaity.example.akturankpredictor.service.CollegeService
 import android.os.Bundle
+import android.view.View
+import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.SearchView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import kotlinx.coroutines.launch
 
 class ShowCollegesActivity : AppCompatActivity() {
 
-    lateinit var recyclerview: RecyclerView
-    lateinit var contestOnly: ArrayList<ModelClass>
-    lateinit var filteredList: ArrayList<ModelClass>
-    lateinit var textShow: TextView
-    lateinit var progressBar: ProgressBar
-    lateinit var searchView: SearchView
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var progressBar: ProgressBar
+    private lateinit var searchView: SearchView
+    private lateinit var headerText: TextView
+    private lateinit var noResultsText: TextView
+    private lateinit var loadingText: TextView
+    private lateinit var loadingContainer: LinearLayout
+    
+    private lateinit var collegeService: CollegeService
+    private lateinit var collegeAdapter: CollegeAdapter
+    
+    private var allColleges: List<College> = emptyList()
+    private var filteredColleges: List<College> = emptyList()
+    
+    private var examId: String = ""
+    private var examName: String = ""
+    private lateinit var userPreferences: UserPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_show_colleges)
-        recyclerview = findViewById(R.id.show_colleges_recylcer)
-        recyclerview.layoutManager = LinearLayoutManager(applicationContext)
 
-        contestOnly = ArrayList()
-        filteredList = ArrayList()
+        initializeViews()
+        setupIntentData()
+        setupCollegeService()
+        setupRecyclerView()
+        setupSearchView()
+        loadColleges()
+    }
+
+    private fun initializeViews() {
+        recyclerView = findViewById(R.id.show_colleges_recylcer)
         progressBar = findViewById(R.id.progress_bar)
         searchView = findViewById(R.id.search_view)
+        headerText = findViewById(R.id.college_header)
+        noResultsText = findViewById(R.id.no_results_text)
+        loadingText = findViewById(R.id.loading_text)
+        loadingContainer = findViewById(R.id.loading_container)
+    }
 
-        val extras = intent.extras
-        val division = extras?.getString("division")
-        val rank = extras?.getString("rank")
-        val state = extras?.getString("state")
-        val quota = extras?.getString("quota")
+    private fun setupIntentData() {
+        examId = intent.getStringExtra("exam_id") ?: ""
+        examName = intent.getStringExtra("exam_name") ?: ""
+        
+        userPreferences = UserPreferences(
+            rank = intent.getIntExtra("user_rank", 0),
+            state = intent.getStringExtra("user_state") ?: "",
+            gender = intent.getStringExtra("user_gender") ?: "",
+            quota = intent.getStringExtra("user_quota") ?: ""
+        )
+        
+        updateHeaderText()
+    }
 
-        textShow = findViewById(R.id.college_header)
+    private fun setupCollegeService() {
+        val collegeRepository = CollegeRepository()
+        collegeService = CollegeService(collegeRepository)
+    }
 
-        var asI: String
-        var amI: String
-
-        asI = if (state == "Select") "All" else state.toString()
-        amI = if (quota == "Select") "All" else quota.toString()
-
-        textShow.text = "Rank: $rank | State: $asI | Quota: $amI"
-
-        if (division.equals("jee_main.json")) {
-            getFetchForJeeMain(division, rank, state, quota)
-        } else {
-            getFetch(division, rank, state, quota)
+    private fun setupRecyclerView() {
+        collegeAdapter = CollegeAdapter(this, emptyList())
+        recyclerView.apply {
+            layoutManager = LinearLayoutManager(this@ShowCollegesActivity)
+            adapter = collegeAdapter
         }
+    }
 
+    private fun setupSearchView() {
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                filter(newText)
+                filterColleges(newText ?: "")
                 return true
             }
         })
     }
 
-    private fun filter(text: String?) {
-        filteredList.clear()
-        if (text.isNullOrEmpty()) {
-            filteredList.addAll(contestOnly)
-        } else {
-            contestOnly.forEach {
-                if (it.Institute.contains(text, true)) {
-                    filteredList.add(it)
+    private fun updateHeaderText() {
+        val header = "Rank: ${userPreferences.rank} | " +
+                    "State: ${userPreferences.state} | " +
+                    "Gender: ${userPreferences.gender} | " +
+                    "Quota: ${userPreferences.quota}"
+        headerText.text = header
+    }
+
+    private fun loadColleges() {
+        showLoadingState()
+        
+        lifecycleScope.launch {
+            when (val response = collegeService.getCollegesForUser(examId, userPreferences)) {
+                is ApiResponse.Success -> {
+                    allColleges = response.data
+                    filteredColleges = allColleges
+                    
+                    if (allColleges.isEmpty()) {
+                        showNoResults()
+                    } else {
+                        showResults()
+                    }
+                }
+                is ApiResponse.Error -> {
+                    Toast.makeText(this@ShowCollegesActivity, response.message, Toast.LENGTH_LONG).show()
+                    showNoResults()
+                }
+                is ApiResponse.Loading -> {
+                    // Already showing loading state
                 }
             }
         }
-        recyclerview.adapter?.notifyDataSetChanged()
     }
 
-    private fun getFetchForJeeMain(
-        division: String?,
-        rank: String?,
-        state: String?,
-        quota: String?
-    ) {
-        val destinationService = RankClient.buildService(RankAPISERVICE::class.java)
-        val requestCallLeetCode = destinationService.getApiResponseAKTUBTECH(division)
-        requestCallLeetCode.enqueue(object : Callback<List<ModelClass>> {
-            override fun onResponse(
-                call: Call<List<ModelClass>>,
-                response: Response<List<ModelClass>>
-            ) {
-                if (response.isSuccessful) {
-                    val symptomsList = response.body()!!
-                    val iterator = symptomsList.iterator()
-                    iterator.forEach {
-                        if (rank != null && it.CR >= rank.toInt()) {
-                            if (state == "Select" && quota == "Select") contestOnly.add(it)
-                            if (state == "Select" && quota == it.Category) contestOnly.add(it)
-                            if (quota == "Select" && state == it.Quota) contestOnly.add(it)
-                            if (quota == it.Category && state == it.Quota) contestOnly.add(it)
-                        }
-                    }
-                    filteredList.addAll(contestOnly)
-                    if (contestOnly.size == 0) {
-                        progressBar.isVisible = false
-                        Toast.makeText(
-                            applicationContext,
-                            "Sorry! No Colleges Found",
-                            Toast.LENGTH_LONG
-                        ).show()
-                    }
-                    progressBar.isVisible = false
-                    recyclerview.isVisible = true
-                    recyclerview.apply {
-                        setHasFixedSize(true)
-                        layoutManager = LinearLayoutManager(applicationContext)
-                        adapter = RankAdapter(applicationContext, filteredList)
-                    }
-                } else {
-                    Toast.makeText(applicationContext, "Response Get Failed", Toast.LENGTH_SHORT)
-                        .show()
-                }
-            }
-
-            override fun onFailure(call: Call<List<ModelClass>>, t: Throwable) {
-                Toast.makeText(applicationContext, "Failure + $t", Toast.LENGTH_SHORT)
-                    .show()
-            }
-        })
+    private fun showLoadingState() {
+        loadingContainer.visibility = View.VISIBLE
+        recyclerView.visibility = View.GONE
+        noResultsText.visibility = View.GONE
+        searchView.visibility = View.GONE
+        
+        loadingText.text = "Finding colleges for your preferences..."
     }
 
-    private fun getFetch(string: String?, rank: String?, state: String?, quota: String?) {
-        val destinationService = RankClient.buildService(RankAPISERVICE::class.java)
-        val requestCallLeetCode = destinationService.getApiResponseAKTUBTECH(string)
-        requestCallLeetCode.enqueue(object : Callback<List<ModelClass>> {
-            override fun onResponse(
-                call: Call<List<ModelClass>>,
-                response: Response<List<ModelClass>>
-            ) {
-                if (response.isSuccessful) {
-                    val symptomsList = response.body()!!
-                    val iterator = symptomsList.iterator()
-                    iterator.forEach {
-                        if (rank != null && it.CR >= rank.toInt()) {
-                            if (state.equals("Uttar Pradesh") && it.Quota == "Home State") {
-                                if (quota == "Select") {
-                                    contestOnly.add(it)
-                                } else if (quota == it.Category) contestOnly.add(it)
-                            } else if (state.equals("Select")) {
-                                if (quota == "Select") {
-                                    contestOnly.add(it)
-                                } else if (quota == it.Category) contestOnly.add(it)
-                            } else if (it.Quota == "All India") {
-                                if (quota == "Select") {
-                                    contestOnly.add(it)
-                                } else if (quota == it.Category) contestOnly.add(it)
-                            }
-                        }
-                    }
-                    filteredList.addAll(contestOnly)
-                    if (contestOnly.size == 0) {
-                        progressBar.isVisible = false
-                        Toast.makeText(
-                            applicationContext,
-                            "Sorry! No Colleges Found",
-                            Toast.LENGTH_LONG
-                        ).show()
-                    }
-                    progressBar.isVisible = false
-                    recyclerview.isVisible = true
-                    recyclerview.apply {
-                        setHasFixedSize(true)
-                        layoutManager = LinearLayoutManager(applicationContext)
-                        adapter = RankAdapter(applicationContext, filteredList)
-                    }
-                } else {
-                    Toast.makeText(applicationContext, "Response Get Failed", Toast.LENGTH_SHORT)
-                        .show()
-                }
-            }
+    private fun filterColleges(query: String) {
+        filteredColleges = collegeService.searchColleges(allColleges, query)
+        collegeAdapter.updateColleges(filteredColleges)
+        
+        if (filteredColleges.isEmpty() && query.isNotEmpty()) {
+            noResultsText.visibility = View.VISIBLE
+            noResultsText.text = "No colleges found matching '$query'"
+        } else {
+            noResultsText.visibility = View.GONE
+        }
+    }
 
-            override fun onFailure(call: Call<List<ModelClass>>, t: Throwable) {
-                Toast.makeText(applicationContext, "Failure + $t", Toast.LENGTH_SHORT)
-                    .show()
-            }
-        })
+    private fun showResults() {
+        loadingContainer.visibility = View.GONE
+        recyclerView.visibility = View.VISIBLE
+        searchView.visibility = View.VISIBLE
+        noResultsText.visibility = View.GONE
+        
+        collegeAdapter.updateColleges(filteredColleges)
+        
+        // Show success message
+        val message = "Found ${filteredColleges.size} colleges for your preferences"
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun showNoResults() {
+        loadingContainer.visibility = View.GONE
+        recyclerView.visibility = View.GONE
+        searchView.visibility = View.GONE
+        noResultsText.visibility = View.VISIBLE
+        
+        noResultsText.text = "No colleges found for your preferences.\n\nTry adjusting your filters:\n• Lower your rank\n• Change your state\n• Select different quota"
     }
 }

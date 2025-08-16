@@ -1,0 +1,83 @@
+[
+  {
+    "institute": "AJAY KUMAR GARG ENGG. COLLEGE, GHAZIABAD",
+    "program": "Computer Science and Engineering",
+    "stream": "B.Tech",
+    "quota": "All India",
+    "category": "OPEN",
+    "openingRank": 101166,
+    "closingRank": 104584
+  },
+  {
+    "institute": "AJAY KUMAR GARG ENGG. COLLEGE, GHAZIABAD",
+    "program": "Computer Science and Engineering",
+    "stream": "B.Tech",
+    "quota": "Home State",
+    "category": "BC(AF)",
+    "openingRank": 215688,
+    "closingRank": 215688
+  },
+  {
+    "institute": "AJAY KUMAR GARG ENGG. COLLEGE, GHAZIABAD",
+    "program": "Computer Science and Engineering",
+    "stream": "B.Tech",
+    "quota": "Home State",
+    "category": "BC(Girl)",
+    "openingRank": 162152,
+    "closingRank": 180496
+  },
+  {
+    "institute": "FACULTY OF ENGG, AGRA COLLEGE, AGRA",
+    "program": "Computer Science and Engineering",
+    "stream": "B.Tech",
+    "quota": "All India",
+    "category": "OPEN",
+    "openingRank": 906831,
+    "closingRank": 1414648
+  },
+  {
+    "institute": "RAJA BALWANT SINGH ENGINEERING TECHNICAL CAMPUS, AGRA",
+    "program": "Computer Science and Engineering",
+    "stream": "B.Tech",
+    "quota": "All India",
+    "category": "OPEN",
+    "openingRank": 565519,
+    "closingRank": 565519
+  },
+  {
+    "institute": "RAJA BALWANT SINGH ENGINEERING TECHNICAL CAMPUS, AGRA",
+    "program": "Computer Science and Engineering",
+    "stream": "B.Tech",
+    "quota": "Home State",
+    "category": "OPEN(GIRL)",
+    "openingRank": 972543,
+    "closingRank": 972543
+  },
+  {
+    "institute": "UNITED COLLEGE OF ENGINEERING & RESEARCH, ALLAHABAD",
+    "program": "Computer Science and Engineering",
+    "stream": "B.Tech",
+    "quota": "All India",
+    "category": "OPEN",
+    "openingRank": 712454,
+    "closingRank": 751232
+  },
+  {
+    "institute": "UNITED COLLEGE OF ENGINEERING & RESEARCH, ALLAHABAD",
+    "program": "Computer Science And Engineering(Artificial Intelligence & Machine Learning)",
+    "stream": "B.Tech",
+    "quota": "All India",
+    "category": "OPEN",
+    "openingRank": 753981,
+    "closingRank": 760687
+  },
+  {
+    "institute": "SHRI RAMMURTI SMARAK COLLEGE OF ENGG AND TECHNOLOGY, BAREILLY",
+    "program": "Computer Science and Engineering",
+    "stream": "B.Tech",
+    "quota": "All India",
+    "category": "OPEN",
+    "openingRank": 1030979,
+    "closingRank": 1070050
+  }
+]
