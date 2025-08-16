@@ -1,7 +1,6 @@
 package akturankpredictorbyamitmaity.example.akturankpredictor
 
 import akturankpredictorbyamitmaity.example.akturankpredictor.data.model.ApiResponse
-import akturankpredictorbyamitmaity.example.akturankpredictor.data.model.Exam
 import akturankpredictorbyamitmaity.example.akturankpredictor.data.model.FilterOptions
 import akturankpredictorbyamitmaity.example.akturankpredictor.data.model.UserPreferences
 import akturankpredictorbyamitmaity.example.akturankpredictor.data.repository.ExamRepository
@@ -12,7 +11,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
@@ -22,7 +20,6 @@ import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 
@@ -96,7 +93,7 @@ class SelectRankActivity : AppCompatActivity() {
                     exam?.let { 
                         examIconName = it.icon
                         setExamIcon()
-                        updateRankHint(it.name)
+                        updateRankHint(examName)
                     }
                 }
                 is ApiResponse.Error -> {
@@ -119,9 +116,7 @@ class SelectRankActivity : AppCompatActivity() {
             if (iconResourceId != 0) {
                 examIcon.setImageResource(iconResourceId)
             } else {
-                // Fallback to default icon
                 examIcon.setImageResource(R.drawable.baseline_search_24)
-                Log.w(TAG, "Icon resource not found: $examIconName, using default icon")
             }
         } catch (e: Exception) {
             Log.e(TAG, "Error setting exam icon: ${e.message}")
@@ -130,31 +125,18 @@ class SelectRankActivity : AppCompatActivity() {
     }
 
     private fun updateRankHint(examName: String) {
-        val hintText = when {
-            examName.contains("JEE Advance", ignoreCase = true) -> "Enter your JEE Advance rank"
-            examName.contains("JEE Main", ignoreCase = true) -> "Enter your JEE Main rank"
-            examName.contains("JEE", ignoreCase = true) -> "Enter your JEE rank"
-            examName.contains("AKTU", ignoreCase = true) -> "Enter your AKTU rank"
-            examName.contains("HBTU", ignoreCase = true) -> "Enter your HBTU rank"
-            else -> "Enter your rank"
-        }
-        inputRank.hint = hintText
-        Log.d(TAG, "Updated rank hint for exam '$examName' to: '$hintText'")
+        inputRank.hint = "Enter your rank in $examName"
     }
 
     private fun loadFilterOptions() {
         progressBar.visibility = View.VISIBLE
-        Log.d(TAG, "Loading filter options...")
-        
         lifecycleScope.launch {
             when (val response = filterOptionsService.getFilterOptions()) {
                 is ApiResponse.Success -> {
-                    Log.d(TAG, "Filter options loaded successfully")
                     setupSpinners(response.data)
                     progressBar.visibility = View.GONE
                 }
                 is ApiResponse.Error -> {
-                    Log.e(TAG, "Error loading filter options: ${response.message}")
                     Toast.makeText(this@SelectRankActivity, response.message, Toast.LENGTH_LONG).show()
                     progressBar.visibility = View.GONE
                     
@@ -181,12 +163,10 @@ class SelectRankActivity : AppCompatActivity() {
         val quotaAdapter = ArrayAdapter(this, R.layout.spinner_item, filterOptions.quotas)
         quotaSpinner.adapter = quotaAdapter
 
-        Log.d(TAG, "Spinners setup with ${filterOptions.states.size} states, ${filterOptions.genders.size} genders, ${filterOptions.quotas.size} quotas")
     }
 
     private fun setupFallbackSpinners() {
-        Log.d(TAG, "Using fallback filter options")
-        
+
         // Fallback state options
         val fallbackStates = arrayOf("All", "Uttar Pradesh", "Delhi", "Maharashtra", "Karnataka")
         val stateAdapter = ArrayAdapter(this, R.layout.spinner_item, fallbackStates)
@@ -252,7 +232,6 @@ class SelectRankActivity : AppCompatActivity() {
     }
 
     private fun navigateToShowColleges(userPreferences: UserPreferences) {
-        Log.d(TAG, "Navigating to ShowCollegesActivity with preferences: $userPreferences")
         val intent = Intent(this, ShowCollegesActivity::class.java)
         intent.putExtra("exam_id", examId)
         intent.putExtra("exam_name", examName)
