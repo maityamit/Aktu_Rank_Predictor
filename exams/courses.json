@@ -1,0 +1,80 @@
+[
+  {
+    "name": "Complete JEE Main Preparation Course 2025",
+    "link": "https://www.udemy.com/course/jee-main-preparation/",
+    "image": "https://img-c.udemycdn.com/course/750x422/1234567_abc123.jpg",
+    "price": "₹2,999",
+    "mentors": ["Amit Maity", "Nitish Kumar"],
+    "last_date": "31st Dec 2024",
+    "description": "Master JEE Main concepts with expert guidance, comprehensive study material, and mock tests. Get ready for your engineering dreams!",
+    "duration": "6 Months",
+    "rating": 4.8,
+    "students_enrolled": 1250,
+    "is_featured": true
+  },
+  {
+    "name": "JEE Advance Crash Course",
+    "link": "https://www.coursera.org/specializations/jee-advance",
+    "image": "https://d3njjcbhbojbot.cloudfront.net/web/images/1234567/def456.jpg",
+    "price": "₹4,999",
+    "mentors": ["Amit Maity"],
+    "last_date": "15th Jan 2025",
+    "description": "Intensive crash course for JEE Advance with focus on advanced concepts and problem-solving techniques.",
+    "duration": "3 Months",
+    "rating": 4.9,
+    "students_enrolled": 850,
+    "is_featured": true
+  },
+  {
+    "name": "AKTU B.Tech Admission Guide",
+    "link": "https://www.youtube.com/playlist?list=PL1234567890",
+    "image": "https://i.ytimg.com/vi/1234567890/maxresdefault.jpg",
+    "price": "₹1,499",
+    "mentors": ["Nitish Kumar"],
+    "last_date": "28th Feb 2025",
+    "description": "Complete guide for AKTU B.Tech admissions including counselling process and college selection strategies.",
+    "duration": "2 Months",
+    "rating": 4.7,
+    "students_enrolled": 2100,
+    "is_featured": false
+  },
+  {
+    "name": "Mathematics Masterclass for Engineering",
+    "link": "https://www.khanacademy.org/math/engineering-math",
+    "image": "https://cdn.kastatic.org/images/1234567/ghi789.jpg",
+    "price": "₹1,999",
+    "mentors": ["Amit Maity", "Prof. Sharma"],
+    "last_date": "20th Mar 2025",
+    "description": "Comprehensive mathematics course covering all topics required for engineering entrance exams.",
+    "duration": "4 Months",
+    "rating": 4.6,
+    "students_enrolled": 1800,
+    "is_featured": false
+  },
+  {
+    "name": "Physics Fundamentals for JEE",
+    "link": "https://www.edx.org/course/physics-jee-preparation",
+    "image": "https://prod-discovery.edx-cdn.org/media/course/image/1234567/jkl012.jpg",
+    "price": "₹2,499",
+    "mentors": ["Dr. Physics Expert"],
+    "last_date": "10th Apr 2025",
+    "description": "Master physics concepts with practical examples and problem-solving techniques for JEE preparation.",
+    "duration": "5 Months",
+    "rating": 4.5,
+    "students_enrolled": 950,
+    "is_featured": false
+  },
+  {
+    "name": "Chemistry Complete Course",
+    "link": "https://www.chemistry.com/course/jee-chemistry",
+    "image": "https://chemistry.com/images/courses/1234567/mno345.jpg",
+    "price": "₹1,799",
+    "mentors": ["Prof. Chemistry", "Amit Maity"],
+    "last_date": "25th May 2025",
+    "description": "Complete chemistry course covering Physical, Organic, and Inorganic chemistry for JEE preparation.",
+    "duration": "4 Months",
+    "rating": 4.4,
+    "students_enrolled": 1200,
+    "is_featured": false
+  }
+]

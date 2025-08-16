@@ -25,4 +25,5 @@ object ApiClient {
         .build()
 
     val collegeApiService: CollegeApiService = retrofit.create(CollegeApiService::class.java)
+    val courseApiService: CourseApiService = retrofit.create(CourseApiService::class.java)
 }

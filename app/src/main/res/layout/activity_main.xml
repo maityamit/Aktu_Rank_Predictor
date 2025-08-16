@@ -18,89 +18,156 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:orientation="horizontal">
-
+            
             <!-- About Us Button (Left) -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/about_us"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:layout_marginEnd="8dp"
                 app:cardCornerRadius="24dp"
                 app:cardElevation="4dp">
-
-                <ImageView
-                    android:layout_width="match_parent"
+                <ImageView 
+                    android:layout_width="match_parent" 
                     android:layout_height="match_parent"
-                    android:background="@drawable/about_us_icon_background"
-                    android:padding="12dp"
-                    android:src="@drawable/baseline_person_24"
-                    android:tint="@android:color/white" />
-
+                    android:background="@drawable/about_us_icon_background" 
+                    android:src="@drawable/baseline_person_24" 
+                    android:tint="@android:color/white" 
+                    android:padding="12dp" />
             </androidx.cardview.widget.CardView>
-
-            <!-- Spacer to push Mentor Guide Chat to the right -->
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1" />
-
+            
+            <View android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1" />
+            
             <!-- Mentor Guide Chat Button (Right) -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/mentor_guide_chat"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:layout_marginStart="8dp"
                 app:cardCornerRadius="24dp"
                 app:cardElevation="4dp">
-
-                <ImageView
-                    android:layout_width="match_parent"
+                <ImageView 
+                    android:layout_width="match_parent" 
                     android:layout_height="match_parent"
-                    android:background="@drawable/chat_icon_background"
-                    android:padding="12dp"
-                    android:src="@drawable/baseline_chat_24"
-                    android:tint="@android:color/white" />
-
+                    android:background="@drawable/chat_icon_background" 
+                    android:src="@drawable/baseline_chat_24" 
+                    android:tint="@android:color/white" 
+                    android:padding="12dp" />
             </androidx.cardview.widget.CardView>
-
         </LinearLayout>
 
-        <!-- Header Section -->
+        <!-- Courses Header Section -->
         <LinearLayout
-            android:id="@+id/header_section"
+            android:id="@+id/courses_header_section"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/top_buttons_container"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/courses_header_background"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="30dp">
 
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/main_logo_background"
-                android:padding="20dp"
-                android:src="@drawable/kogo"
+            <ImageView 
+                android:layout_width="80dp" 
+                android:layout_height="80dp" 
+                android:layout_marginBottom="20dp" 
+                android:background="@drawable/courses_icon_background" 
+                android:padding="20dp" 
+                android:src="@drawable/baseline_school_24" 
+                android:tint="@android:color/white"
                 android:scaleType="fitCenter" />
+            
+            <TextView 
+                android:layout_width="match_parent" 
+                android:layout_height="wrap_content" 
+                android:gravity="center" 
+                android:text="🔥 LIVE COURSES" 
+                android:textColor="@android:color/white" 
+                android:textSize="28sp" 
+                android:textStyle="bold" />
+            
+            <TextView 
+                android:layout_width="match_parent" 
+                android:layout_height="wrap_content" 
+                android:layout_marginTop="8dp" 
+                android:gravity="center" 
+                android:text="Master your engineering dreams with expert-led courses!" 
+                android:textColor="#E0E0E0" 
+                android:textSize="16sp" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="AKTU Rank Predictor"
-                android:textColor="#1A1A1A"
-                android:textSize="28sp"
+            <TextView 
+                android:layout_width="wrap_content" 
+                android:layout_height="wrap_content" 
+                android:layout_marginTop="16dp" 
+                android:background="@drawable/explore_button_background"
+                android:padding="12dp"
+                android:text="🎯 EXPLORE COURSES" 
+                android:textColor="#FF6B35" 
+                android:textSize="14sp" 
                 android:textStyle="bold" />
 
-            <TextView
+        </LinearLayout>
+
+        <!-- Live Courses Section -->
+        <LinearLayout
+            android:id="@+id/courses_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/courses_header_section"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <!-- Courses Header -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:gravity="center"
-                android:text="Choose your exam to get started"
-                android:textColor="#666666"
-                android:textSize="16sp" />
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableStart="@drawable/baseline_school_24"
+                    android:drawablePadding="12dp"
+                    android:text="🔥 FEATURED COURSES"
+                    android:textColor="#1A1A1A"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/view_all_courses_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/view_all_button_background"
+                    android:padding="8dp"
+                    android:text="View All"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <!-- Courses RecyclerView -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/course_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false" />
+
+            <!-- Course Loading Progress -->
+            <ProgressBar
+                android:id="@+id/course_progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:indeterminateTint="#1976D2"
+                android:visibility="gone" />
 
         </LinearLayout>
 
@@ -117,7 +184,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/header_section"
+            android:layout_below="@id/courses_section"
             android:layout_marginTop="40dp"
             android:orientation="vertical">
 
